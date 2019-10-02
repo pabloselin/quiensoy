@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ladrido2.wav-1cc100d3ad3ecd63f485e36622e70c2f.sample"
+
+[deps]
+
+source_file="res://sfx/ladrido2.wav"
+dest_files=[ "res://.import/ladrido2.wav-1cc100d3ad3ecd63f485e36622e70c2f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

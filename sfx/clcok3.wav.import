@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/clcok3.wav-583710f46cb58a6f60a386b53186de95.sample"
+
+[deps]
+
+source_file="res://sfx/clcok3.wav"
+dest_files=[ "res://.import/clcok3.wav-583710f46cb58a6f60a386b53186de95.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

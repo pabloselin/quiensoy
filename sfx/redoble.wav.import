@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/redoble.wav-414477c057b45a12011f998ee55c82da.sample"
+
+[deps]
+
+source_file="res://sfx/redoble.wav"
+dest_files=[ "res://.import/redoble.wav-414477c057b45a12011f998ee55c82da.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

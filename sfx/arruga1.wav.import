@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/arruga1.wav-d86fb7d928d85d6bff4105c80e5366ab.sample"
+
+[deps]
+
+source_file="res://sfx/arruga1.wav"
+dest_files=[ "res://.import/arruga1.wav-d86fb7d928d85d6bff4105c80e5366ab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

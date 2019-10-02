@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/huayno_rapido_urbano_loop.ogg-d3cf5801239ec75890d6f7bd38b32ac8.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/huayno_rapido_urbano_loop.ogg"
+dest_files=[ "res://.import/huayno_rapido_urbano_loop.ogg-d3cf5801239ec75890d6f7bd38b32ac8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

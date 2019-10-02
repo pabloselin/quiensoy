@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Mosca3.wav-399b55741ad6dbfa7efc2c6d130c6633.sample"
+
+[deps]
+
+source_file="res://sfx/Mosca3.wav"
+dest_files=[ "res://.import/Mosca3.wav-399b55741ad6dbfa7efc2c6d130c6633.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

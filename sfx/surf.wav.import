@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/surf.wav-5ea088c07ac4235726489cc8499b860b.sample"
+
+[deps]
+
+source_file="res://sfx/surf.wav"
+dest_files=[ "res://.import/surf.wav-5ea088c07ac4235726489cc8499b860b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

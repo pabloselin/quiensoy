@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/carnaval.ogg-9e7de1ad120e580a12133da05dec7136.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/carnaval.ogg"
+dest_files=[ "res://.import/carnaval.ogg-9e7de1ad120e580a12133da05dec7136.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

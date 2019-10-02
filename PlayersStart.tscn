@@ -1,0 +1,269 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://PlayersStart.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
+[ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
+[ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
+[ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
+[ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
+[ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
+[ext_resource path="res://objects/ObjectPlayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/TimerUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://sfx/arruga1.wav" type="AudioStream" id=11]
+[ext_resource path="res://sfx/globoapretando02.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/bgm/tumbe.ogg" type="AudioStream" id=13]
+[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=14]
+[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Instructivo.tscn" type="PackedScene" id=16]
+[ext_resource path="res://gfx/icons/next.png" type="Texture" id=17]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 18.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "moveAround"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TouchIt:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 1.5, 2, 2.5, 2.9, 3.5, 4, 4.6, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 845.688 ), Vector2( 1660, 845 ), Vector2( 1660, 845 ), Vector2( 1650, 250 ), Vector2( 1650, 250 ), Vector2( 547, 260 ), Vector2( 547, 260 ), Vector2( 547.886, 260 ), Vector2( 547.886, 845.688 ), Vector2( 547.886, 845.688 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TouchIt:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 2.5, 4.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -180.0, 0.0 ]
+}
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+uniform float amount : hint_range(0,10);
+void fragment() {
+    COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/amount = 5.0
+
+[sub_resource type="Animation" id=8]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "ZoomStart"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.7, 0.7 ), Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ), Vector2( 0.6, 0.6 ), Vector2( 1, 1 ) ]
+}
+
+[node name="PlayersStart" type="Node2D"]
+editor/display_folded = true
+script = ExtResource( 1 )
+
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.662745, 0, 0.235294 )
+
+[node name="Players" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Player1" type="TouchScreenButton" parent="Players"]
+modulate = Color( 0.635294, 0.192157, 1, 0 )
+position = Vector2( 462.963, 201.123 )
+scale = Vector2( 0.165477, 0.276466 )
+normal = ExtResource( 3 )
+
+[node name="Player2" type="TouchScreenButton" parent="Players"]
+modulate = Color( 0.635294, 0.192157, 1, 0 )
+position = Vector2( 1531.58, 208.713 )
+scale = Vector2( 0.162148, 0.265599 )
+normal = ExtResource( 3 )
+
+[node name="Player3" type="TouchScreenButton" parent="Players"]
+modulate = Color( 0.635294, 0.192157, 1, 0 )
+position = Vector2( 470.552, 725.944 )
+scale = Vector2( 0.141041, 0.294282 )
+normal = ExtResource( 3 )
+
+[node name="Player4" type="TouchScreenButton" parent="Players"]
+modulate = Color( 0.635294, 0.192157, 1, 0 )
+position = Vector2( 1533.71, 728.418 )
+scale = Vector2( 0.180692, 0.308856 )
+normal = ExtResource( 3 )
+
+[node name="PlayerAnimations" type="Node2D" parent="Players"]
+editor/display_folded = true
+
+[node name="Player1Animation2" type="AnimatedSprite" parent="Players/PlayerAnimations"]
+position = Vector2( 1616.5, 271.982 )
+frames = SubResource( 1 )
+animation = "unfold"
+flip_v = true
+
+[node name="Player1Animation3" type="AnimatedSprite" parent="Players/PlayerAnimations"]
+position = Vector2( 541.115, 802.824 )
+frames = SubResource( 2 )
+animation = "unfold"
+
+[node name="Player1Animation4" type="AnimatedSprite" parent="Players/PlayerAnimations"]
+position = Vector2( 1626.77, 809.673 )
+frames = SubResource( 3 )
+animation = "unfold"
+
+[node name="Player1Animation" type="AnimatedSprite" parent="Players/PlayerAnimations"]
+position = Vector2( 544.54, 271.982 )
+frames = SubResource( 4 )
+animation = "unfold"
+flip_v = true
+
+[node name="PlayerObjects" type="Node2D" parent="Players"]
+editor/display_folded = true
+
+[node name="ObjectPlayer1" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 555.112, 267.793 )
+
+[node name="ObjectPlayer2" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 1637.44, 270.582 )
+
+[node name="ObjectPlayer3" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 552.323, 803.379 )
+
+[node name="ObjectPlayer4" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+visible = false
+position = Vector2( 1643.02, 811.747 )
+
+[node name="DebugTimer" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -52.0
+
+[node name="TimerUI" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1085.31, 576.806 )
+
+[node name="Seconds" type="Timer" parent="TimerUI"]
+
+[node name="CountDown" type="Timer" parent="TimerUI"]
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Player1Sound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+
+[node name="CountDown" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 12 )
+pitch_scale = 0.7
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="Explode" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 14 )
+
+[node name="Ayudas" type="Node2D" parent="."]
+
+[node name="TouchIt" parent="Ayudas" instance=ExtResource( 15 )]
+modulate = Color( 0, 1, 0.156863, 1 )
+position = Vector2( 547.886, 845.688 )
+scale = Vector2( 0.4, 0.4 )
+
+[node name="MoveHand" type="AnimationPlayer" parent="Ayudas"]
+anims/moveAround = SubResource( 5 )
+
+[node name="HelpTimer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2160.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Instructivo" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1089.08, 558.24 )
+
+[node name="FadeBg" type="AnimationPlayer" parent="."]
+anims/Fade = SubResource( 8 )
+
+[node name="Skip" type="TouchScreenButton" parent="."]
+position = Vector2( 1980.87, 952.489 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 17 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1080, 540 )
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
+anims/ZoomStart = SubResource( 9 )
+[connection signal="timeout" from="TimerUI/Seconds" to="." method="_on_Seconds_timeout"]
+[connection signal="instructionsFinished" from="Instructivo" to="." method="_on_Instructivo_instructionsFinished"]
+[connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]

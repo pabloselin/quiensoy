@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/desinflando02.wav-ca2ecd8183c03e7b5fc4d0ff2e3dc8b7.sample"
+
+[deps]
+
+source_file="res://sfx/desinflando02.wav"
+dest_files=[ "res://.import/desinflando02.wav-ca2ecd8183c03e7b5fc4d0ff2e3dc8b7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

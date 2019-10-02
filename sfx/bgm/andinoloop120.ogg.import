@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/andinoloop120.ogg-05f2bbd3786b18cb3866d42bb6a0d7f4.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/andinoloop120.ogg"
+dest_files=[ "res://.import/andinoloop120.ogg-05f2bbd3786b18cb3866d42bb6a0d7f4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

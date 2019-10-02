@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/truenotierra.wav-1a71e3ed2448379fae795f5e5274b296.sample"
+
+[deps]
+
+source_file="res://sfx/truenotierra.wav"
+dest_files=[ "res://.import/truenotierra.wav-1a71e3ed2448379fae795f5e5274b296.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

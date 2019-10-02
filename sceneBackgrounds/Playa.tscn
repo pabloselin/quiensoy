@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gfx/bgs/fondo_playa.png" type="Texture" id=1]
+
+[node name="Playa" type="Node2D"]
+
+[node name="Arena" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -306.428
+margin_top = -82.9159
+margin_right = 233.572
+margin_bottom = 187.084
+texture = ExtResource( 1 )

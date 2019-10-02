@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/redobleindigena.wav-1e3b6c066f8c0d583d87fb125c7459c6.sample"
+
+[deps]
+
+source_file="res://sfx/redobleindigena.wav"
+dest_files=[ "res://.import/redobleindigena.wav-1e3b6c066f8c0d583d87fb125c7459c6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/huayno150.ogg-e0aa9f420240cbadc0c62488ee4fb493.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/huayno150.ogg"
+dest_files=[ "res://.import/huayno150.ogg-e0aa9f420240cbadc0c62488ee4fb493.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

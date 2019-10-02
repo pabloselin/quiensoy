@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/malku.ogg-4fd7db056a37c10084de0facc42ba25d.oggstr"
+
+[deps]
+
+source_file="res://sfx/malku.ogg"
+dest_files=[ "res://.import/malku.ogg-4fd7db056a37c10084de0facc42ba25d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

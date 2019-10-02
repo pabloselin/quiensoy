@@ -1,0 +1,205 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://minigames/EspantaMoscas.gd" type="Script" id=1]
+[ext_resource path="res://gfx/objects/matraca_02.png" type="Texture" id=2]
+[ext_resource path="res://ambient/Mosquita.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sfx/Matraca.wav" type="AudioStream" id=4]
+[ext_resource path="res://gfx/particles/sound.png" type="Texture" id=5]
+[ext_resource path="res://ui/MiniGameMask.tscn" type="PackedScene" id=6]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -488.039, -109.719, -338.37, 143.156, 338.37, -143.156, 6.50208, 0.901581 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 758.073, -5.60562, 159.424, -224.495, -159.424, 224.495, 204.969, 36.6906 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 663.72, -373.257, 126.889, -237.51, -126.889, 237.51, 270.04, -174.79 )
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 601.903, 186.354, 221.242, 198.467, -221.242, -198.467, 143.151, 131.044 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -315.6, -438.329, 6.50711, -442.484, -6.50711, 442.484, 139.898, -230.101 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -478.278, 469.414, -104.114, 250.524, 104.114, -250.524, -52.0621, 157.072 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "ShakeThing"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Matraca:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1.10957, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 2.0, -5.0, 0.0, 4.0, 0.74873 ]
+}
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.0291971, 0.386861, 0.649635, 1 )
+colors = PoolColorArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 3
+emission_point_count = 1
+flag_disable_z = true
+gravity = Vector3( 100, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 9 )
+
+[node name="EspantaMoscas" type="Node2D"]
+light_mask = 2
+script = ExtResource( 1 )
+
+[node name="Matraca" type="TouchScreenButton" parent="."]
+position = Vector2( 1029.75, 230.176 )
+scale = Vector2( 2, 2 )
+normal = ExtResource( 2 )
+
+[node name="Moscas" type="Node2D" parent="."]
+light_mask = 2
+position = Vector2( 1031.38, 439.23 )
+
+[node name="Path2D" type="Path2D" parent="Moscas"]
+light_mask = 2
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D"]
+light_mask = 2
+position = Vector2( -488.039, -109.719 )
+rotation = 0.989014
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( -3.57581, 5.43652 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Path2D2" type="Path2D" parent="Moscas"]
+light_mask = 2
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D2"]
+light_mask = 2
+position = Vector2( 758.073, -5.60562 )
+rotation = -2.72081
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D2/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+scale = Vector2( 0.3, 0.3 )
+
+[node name="Path2D3" type="Path2D" parent="Moscas"]
+light_mask = 2
+position = Vector2( 16.2678, -19.5213 )
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D3"]
+light_mask = 2
+position = Vector2( 663.72, -373.257 )
+rotation = -3.02064
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D3/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+
+[node name="Path2D4" type="Path2D" parent="Moscas"]
+light_mask = 2
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D4"]
+light_mask = 2
+position = Vector2( 601.903, 186.354 )
+rotation = 2.62535
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D4/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+
+[node name="Path2D5" type="Path2D" parent="Moscas"]
+light_mask = 2
+position = Vector2( -0.00012207, -13.0142 )
+curve = SubResource( 5 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D5"]
+light_mask = 2
+position = Vector2( -315.6, -438.329 )
+rotation = -0.455057
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D5/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Path2D6" type="Path2D" parent="Moscas"]
+light_mask = 2
+position = Vector2( -26.0286, 29.282 )
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Moscas/Path2D6"]
+light_mask = 2
+position = Vector2( -478.278, 469.414 )
+rotation = -0.205682
+loop = false
+
+[node name="Mosquita" parent="Moscas/Path2D6/PathFollow2D" instance=ExtResource( 3 )]
+light_mask = 2
+
+[node name="AltTimer" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ShakeThing = SubResource( 7 )
+
+[node name="GiraMatraca" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Sonido" type="Particles2D" parent="."]
+position = Vector2( 1316.17, 354.877 )
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 1
+preprocess = 146.81
+speed_scale = 0.8
+visibility_rect = Rect2( -100, -100, 400, 200 )
+process_material = SubResource( 10 )
+texture = ExtResource( 5 )
+
+[node name="Sonido2" type="Particles2D" parent="."]
+position = Vector2( 982.168, 359.877 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+emitting = false
+amount = 1
+preprocess = 146.81
+speed_scale = 0.8
+visibility_rect = Rect2( -100, -100, 400, 200 )
+process_material = SubResource( 10 )
+texture = ExtResource( 5 )
+
+[node name="MiniGameMask" parent="." instance=ExtResource( 6 )]
+[connection signal="pressed" from="Matraca" to="." method="_on_DePie_pressed"]
+[connection signal="released" from="Matraca" to="." method="_on_DePie_released"]
+[connection signal="timeout" from="AltTimer" to="." method="_on_AltTimer_timeout"]

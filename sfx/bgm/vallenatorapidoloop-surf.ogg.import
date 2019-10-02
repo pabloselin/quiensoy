@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vallenatorapidoloop-surf.ogg-a0d1cc6d927f6a69fb4bf325310ad1e9.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/vallenatorapidoloop-surf.ogg"
+dest_files=[ "res://.import/vallenatorapidoloop-surf.ogg-a0d1cc6d927f6a69fb4bf325310ad1e9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

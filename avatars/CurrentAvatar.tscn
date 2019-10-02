@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://avatars/CurrentAvatar.gd" type="Script" id=1]
+
+[node name="CurrentAvatar" type="Node2D"]
+position = Vector2( 7.95007, 479.657 )
+script = ExtResource( 1 )
+
+[node name="CurrentFeet" type="Node2D" parent="."]
+position = Vector2( -3.75855, 257.87 )
+
+[node name="CurrentTorso" type="Node2D" parent="."]
+position = Vector2( -0.881592, -200.391 )
+
+[node name="CurrentHead" type="Node2D" parent="."]
+position = Vector2( -7.9502, -697.336 )

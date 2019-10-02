@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://minigames/DisparaFlecha.gd" type="Script" id=1]
+[ext_resource path="res://gfx/objects/flecha.png" type="Texture" id=2]
+[ext_resource path="res://gfx/bgs/vertline.png" type="Texture" id=3]
+[ext_resource path="res://gfx/objects/arco.png" type="Texture" id=4]
+[ext_resource path="res://sfx/flecha.wav" type="AudioStream" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 312.441, 42.7187 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44.24, 1136.33 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ShakeArrow"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flecha/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 4.0, -4.0, 3.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cuerda:points")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 739.193, 148.107, 737.435, 504.999, 746.225, 890.02 ), PoolVector2Array( 739.193, 148.107, 720, 504.999, 746.225, 890.02 ), PoolVector2Array( 739.193, 148.107, 760, 504.999, 746, 890.02 ), PoolVector2Array( 739.193, 148.107, 737.435, 504.999, 746.225, 890.02 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "ShakeBow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Arco:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.3, -0.3, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flecha/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.2, -0.2, 0.0 ]
+}
+
+[node name="DisparaFlecha" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Cuerda" type="Line2D" parent="."]
+light_mask = 2
+position = Vector2( -56.8663, 89.8192 )
+points = PoolVector2Array( 739.193, 148.107, 737.435, 504.999, 746.225, 890.02 )
+width = 6.0
+default_color = Color( 0.411765, 0, 0.105882, 1 )
+
+[node name="Flecha" type="KinematicBody2D" parent="."]
+light_mask = 2
+position = Vector2( 860.955, 588.331 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flecha"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Flecha"]
+light_mask = 2
+position = Vector2( 289.412, 3.31088 )
+rotation = 0.00349066
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 2 )
+offset = Vector2( -482.354, -5.51813 )
+
+[node name="Stretch" type="Timer" parent="."]
+
+[node name="Muro" type="StaticBody2D" parent="."]
+position = Vector2( -207.672, -4.19958 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Muro"]
+position = Vector2( 2110.76, 227.207 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="Muro"]
+light_mask = 2
+position = Vector2( 2053.17, 527.274 )
+texture = ExtResource( 3 )
+
+[node name="Arco" type="Sprite" parent="."]
+light_mask = 2
+position = Vector2( 763.116, 592.99 )
+rotation = 0.00523599
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Flechazo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="WallAnimation" type="AnimationPlayer" parent="."]
+anims/ShakeArrow = SubResource( 3 )
+anims/ShakeBow = SubResource( 4 )
+
+[node name="BowAnimation" type="AnimationPlayer" parent="."]
+anims/ShakeBow = SubResource( 4 )
+[connection signal="timeout" from="Stretch" to="." method="_on_Stretch_timeout"]

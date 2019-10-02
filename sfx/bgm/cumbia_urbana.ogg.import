@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cumbia_urbana.ogg-714b8b6e0b184cfdae06de08a0a6fa15.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/cumbia_urbana.ogg"
+dest_files=[ "res://.import/cumbia_urbana.ogg-714b8b6e0b184cfdae06de08a0a6fa15.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

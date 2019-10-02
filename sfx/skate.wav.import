@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/skate.wav-c61f6eec7787ba9005ec6e98ca47a566.sample"
+
+[deps]
+
+source_file="res://sfx/skate.wav"
+dest_files=[ "res://.import/skate.wav-c61f6eec7787ba9005ec6e98ca47a566.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

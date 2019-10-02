@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://minigames/TurtleCrossing.gd" type="Script" id=1]
+[ext_resource path="res://items/Turtle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Can.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Bottle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/bgm/tumbetarqueada160.ogg" type="AudioStream" id=5]
+
+[node name="TurtleCrossing" type="Node2D"]
+light_mask = 2
+script = ExtResource( 1 )
+
+[node name="Turtle" parent="." instance=ExtResource( 2 )]
+light_mask = 2
+position = Vector2( 2115.15, 197.941 )
+
+[node name="Can" parent="." instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( 1430, 160 )
+
+[node name="Can2" parent="." instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( 1440, 860 )
+
+[node name="Can3" parent="." instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( 1090, 560 )
+
+[node name="Can5" parent="." instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( 940, 300 )
+
+[node name="Can4" parent="." instance=ExtResource( 3 )]
+light_mask = 2
+position = Vector2( 1270, 340 )
+
+[node name="Bottle" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 1340, 700 )
+
+[node name="Bottle2" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 1580, 400 )
+
+[node name="Bottle3" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 1680, 720 )
+
+[node name="Bottle5" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 650, 710 )
+
+[node name="Bottle6" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 420, 290 )
+
+[node name="Bottle4" parent="." instance=ExtResource( 4 )]
+light_mask = 2
+position = Vector2( 1720, 170 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true

@@ -1,0 +1,238 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://minigames/MiniGameBase.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
+[ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
+[ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
+[ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
+[ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
+[ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
+[ext_resource path="res://gfx/sprites/unfold_06c.png" type="Texture" id=9]
+[ext_resource path="res://gfx/sprites/unfold_06d.png" type="Texture" id=10]
+[ext_resource path="res://gfx/sprites/unfold_06e.png" type="Texture" id=11]
+[ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gfx/masks/minigamemask_b.png" type="Texture" id=13]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/GameTimeOut.tscn" type="PackedScene" id=15]
+[ext_resource path="res://gfx/icons/sos.png" type="Texture" id=16]
+[ext_resource path="res://gfx/guias/malku.png" type="Texture" id=17]
+[ext_resource path="res://gfx/guias/skaty.png" type="Texture" id=18]
+[ext_resource path="res://gfx/guias/surf.png" type="Texture" id=19]
+[ext_resource path="res://gfx/guias/flecha.png" type="Texture" id=20]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": false,
+"name": "unfold",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "jitter",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "ShowDefeat"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Derrota:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Derrota:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "ShowFlecha"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Personajes/Flecha:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2541.03, 767.839 ), Vector2( -654.3, 676.544 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Personajes/Malku:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2541.03, 767.839 ), Vector2( 1808.98, 774.346 ), Vector2( 1808.98, 774.346 ), Vector2( 2541.03, 774.346 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "ShowSkaty"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Personajes/Skaty:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1158.27, -751.572 ), Vector2( 1130.18, 821.513 ), Vector2( 1130, 821 ), Vector2( 1165.29, 2717.64 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "ShowSurf"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Personajes/Surf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -523.82, 647.458 ), Vector2( 2994.55, 794.934 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Personajes/Surf:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float radius = 5.0;
+uniform vec4  modulate : hint_color;
+
+void fragment() {
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
+
+	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
+	shadow /= 8.0;
+	shadow *= modulate;
+
+	vec4 col = texture(TEXTURE, UV);
+	COLOR = mix(shadow, col, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/radius = 10.0
+shader_param/modulate = null
+
+[node name="MiniGameUI" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RebootTimer" type="Timer" parent="."]
+
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
+
+[node name="UnfoldBG" type="AnimatedSprite" parent="."]
+position = Vector2( 1091.08, 540.903 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 1 )
+animation = "unfold"
+frame = 7
+
+[node name="CurrentCamera" parent="." instance=ExtResource( 12 )]
+
+[node name="MiniGameZone" type="Node2D" parent="."]
+
+[node name="MaskGame" type="Light2D" parent="MiniGameZone"]
+light_mask = 2
+position = Vector2( 1089.94, 540.089 )
+texture = ExtResource( 13 )
+mode = 3
+range_item_cull_mask = 2
+
+[node name="CurrentAvatar" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1942.13, 785.933 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="GameTimeOut" parent="." instance=ExtResource( 15 )]
+position = Vector2( 358.542, 792.779 )
+
+[node name="ShowPersonaje" type="AnimationPlayer" parent="."]
+anims/ShowDefeat = SubResource( 2 )
+anims/ShowFlecha = SubResource( 3 )
+anims/ShowMalku = SubResource( 4 )
+anims/ShowSkaty = SubResource( 5 )
+anims/ShowSurf = SubResource( 6 )
+
+[node name="Derrota" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1089.94, 530.33 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 16 )
+
+[node name="Personajes" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Malku" type="Sprite" parent="Personajes"]
+material = SubResource( 8 )
+position = Vector2( 2541.03, 767.839 )
+texture = ExtResource( 17 )
+
+[node name="Skaty" type="Sprite" parent="Personajes"]
+material = SubResource( 8 )
+position = Vector2( 1158.27, -751.572 )
+texture = ExtResource( 18 )
+
+[node name="Surf" type="Sprite" parent="Personajes"]
+modulate = Color( 1, 1, 1, 0.5 )
+material = SubResource( 8 )
+position = Vector2( -523.82, 647.458 )
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="Flecha" type="Sprite" parent="Personajes"]
+material = SubResource( 8 )
+position = Vector2( 2541.03, 767.839 )
+texture = ExtResource( 20 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="RebootTimer" to="." method="_on_RebootTimer_timeout"]

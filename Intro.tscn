@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Intro.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/TituloCentral.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gfx/texts/tituloquiensoy.png" type="Texture" id=4]
+[ext_resource path="res://fonts/Schoolbell-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://gfx/icons/boton.png" type="Texture" id=6]
+[ext_resource path="res://sfx/tambor2.wav" type="AudioStream" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Tilt"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+font_data = ExtResource( 5 )
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 106.719, 962.867 ],
+"_edit_vertical_guides_": [ 211.496, 1973.29 ]
+}
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.866667, 0, 0.564706 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Tilt"
+anims/Tilt = SubResource( 1 )
+
+[node name="Personaje" type="Node2D" parent="."]
+position = Vector2( 387.595, 516.793 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="PersonajeBGM" type="AudioStreamPlayer" parent="Personaje"]
+
+[node name="PersonajeInv" type="Node2D" parent="."]
+position = Vector2( 1799.97, 510.92 )
+rotation = 3.14159
+scale = Vector2( 0.6, 0.6 )
+
+[node name="TituloCentral" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 0.14902, 0.14902, 1 )
+position = Vector2( 1143.49, 524.249 )
+scale = Vector2( 0.62037, 0.598256 )
+texture = ExtResource( 4 )
+
+[node name="VersionNumber" type="Label" parent="."]
+margin_left = 1632.6
+margin_top = 933.751
+margin_right = 2136.6
+margin_bottom = 1109.75
+custom_fonts/font = SubResource( 2 )
+text = "[VERSION]"
+align = 2
+valign = 1
+autowrap = true
+
+[node name="CreditsButton" type="TouchScreenButton" parent="."]
+position = Vector2( 14.848, 1009.6 )
+scale = Vector2( 0.4, 0.4 )
+normal = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="CreditsButton"]
+margin_left = 119.299
+margin_top = 3.50879
+margin_right = 393.299
+margin_bottom = 113.509
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Creditos"
+
+[node name="StartButton" type="TouchScreenButton" parent="."]
+position = Vector2( 825.75, 898.758 )
+normal = ExtResource( 6 )
+
+[node name="Comenzar" type="Label" parent="StartButton"]
+margin_left = 105.366
+margin_top = -1.0473
+margin_right = 423.366
+margin_bottom = 108.953
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "¡empiecen!"
+
+[node name="RuidoComienzo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+[connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

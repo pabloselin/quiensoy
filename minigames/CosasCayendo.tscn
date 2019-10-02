@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://minigames/CosasCayendo.gd" type="Script" id=1]
+[ext_resource path="res://objects/Triciclo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Cosa.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sfx/desaparece-aparece-1.wav" type="AudioStream" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 530.179, 773.531, 0, 0, 0, 0, 1822.16, 773.531 )
+}
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 1246.64, 10 )
+
+[node name="CosasCayendo" type="Node2D"]
+position = Vector2( 3.09088, 0 )
+script = ExtResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( -5.87268, 0 )
+curve = SubResource( 1 )
+
+[node name="TricicloPath" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 530.179, 773.531 )
+rotation = 3.1015e-05
+loop = false
+
+[node name="Triciclo" parent="Path2D/TricicloPath" instance=ExtResource( 2 )]
+position = Vector2( -6.68158, -7.07172 )
+rotation = 0.00646266
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 1153.98, 983.669 )
+shape = SubResource( 2 )
+
+[node name="Basura" type="Node2D" parent="."]
+
+[node name="Cosa" parent="Basura" instance=ExtResource( 3 )]
+position = Vector2( 1443.44, 414.177 )
+mass = 2.04082
+gravity_scale = 2.0
+
+[node name="Cosa2" parent="Basura" instance=ExtResource( 3 )]
+position = Vector2( 1591.8, -21.6361 )
+mass = 2.04082
+gravity_scale = 2.0
+
+[node name="Cosa3" parent="Basura" instance=ExtResource( 3 )]
+position = Vector2( 1740.16, 203.997 )
+mass = 2.04082
+gravity_scale = 2.0
+
+[node name="Cosa4" parent="Basura" instance=ExtResource( 3 )]
+position = Vector2( 951.988, 259.633 )
+mass = 2.04082
+gravity_scale = 2.0
+
+[node name="Puf" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+[connection signal="body_entered" from="Path2D/TricicloPath/Triciclo" to="." method="_on_Triciclo_body_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://gfx/sprites/fly_01.png" type="Texture" id=1]
+[ext_resource path="res://gfx/sprites/fly_03.png" type="Texture" id=2]
+[ext_resource path="res://gfx/sprites/fly_02.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "flying",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "bzz"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 20, 100 ), Vector2( 0, 0 ), Vector2( 100, -200 ), Vector2( 5.16277, 5.16277 ) ]
+}
+
+[node name="Mosquita" type="Node2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 58.0262, -108.189 )
+frames = SubResource( 1 )
+animation = "flying"
+frame = 3
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bzz"
+anims/bzz = SubResource( 2 )

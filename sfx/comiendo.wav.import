@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/comiendo.wav-a04beb048f33331b825ce848797c2fae.sample"
+
+[deps]
+
+source_file="res://sfx/comiendo.wav"
+dest_files=[ "res://.import/comiendo.wav-a04beb048f33331b825ce848797c2fae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

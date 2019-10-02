@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/huaynorapidourbanoloop.ogg-92b55c1c455aa0e3239a387e0b98e090.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/huaynorapidourbanoloop.ogg"
+dest_files=[ "res://.import/huaynorapidourbanoloop.ogg-92b55c1c455aa0e3239a387e0b98e090.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

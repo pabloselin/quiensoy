@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://gfx/avatar/av-cabezas-1.png" type="Texture" id=1]
+[ext_resource path="res://gfx/avatar/av-cabezas-2.png" type="Texture" id=2]
+[ext_resource path="res://gfx/avatar/av-cabezas-3.png" type="Texture" id=3]
+[ext_resource path="res://gfx/avatar/av-cabezas-4.png" type="Texture" id=4]
+[ext_resource path="res://gfx/avatar/av-cabezas-5.png" type="Texture" id=5]
+[ext_resource path="res://gfx/avatar/av-cabezas-6.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[node name="Cabeza" type="AnimatedSprite"]
+position = Vector2( 696.628, 518.553 )
+scale = Vector2( 0.6032, 0.6032 )
+frames = SubResource( 1 )
+frame = 4

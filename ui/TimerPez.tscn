@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://gfx/timer/02/timer-00.png" type="Texture" id=1]
+[ext_resource path="res://gfx/timer/02/timer-05.png" type="Texture" id=2]
+[ext_resource path="res://gfx/timer/02/timer-04.png" type="Texture" id=3]
+[ext_resource path="res://gfx/timer/02/timer-01.png" type="Texture" id=4]
+[ext_resource path="res://gfx/timer/02/timer-02.png" type="Texture" id=5]
+[ext_resource path="res://gfx/timer/02/timer-03.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "reborn",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "explode",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "countdown",
+"speed": 1.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "ClockRotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PezGlobo:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 180.0, 270.0, 360.0, 90.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "FastShake"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PezGlobo:rotation_degrees")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3.0, 10.0, -10.0, -3.0, 0.0, -8.0, -20.0, 20.0, 1.0, -4.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PezGlobo:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, -5.0, 10.0, 5.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PezGlobo:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="TimerPez" type="Node2D"]
+rotation = -1.5708
+
+[node name="PezGlobo" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "reborn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ClockRotate"
+anims/ClockRotate = SubResource( 2 )
+anims/FastShake = SubResource( 3 )
+anims/Shake = SubResource( 4 )

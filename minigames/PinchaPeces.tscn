@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://minigames/PinchaPeces.gd" type="Script" id=1]
+[ext_resource path="res://objects/TouchBalloon.tscn" type="PackedScene" id=2]
+
+[node name="PinchaPeces" type="Node2D"]
+position = Vector2( -125.793, 121.134 )
+script = ExtResource( 1 )
+
+[node name="PezGlobo" parent="." instance=ExtResource( 2 )]
+position = Vector2( 69.8848, 177.042 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PezGlobo2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 475.217, 46.59 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PezGlobo3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1034.3, 125.793 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PezGlobo4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1565.42, 79.2029 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PezGlobo5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 535.784, 526.466 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="PezGlobo6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1295.2, 512.489 )
+scale = Vector2( 0.5, 0.5 )

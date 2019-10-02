@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/vallenato_rapido_loop.ogg-4fdd264cf62874c935a1e8a3e2b4aa7e.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/vallenato_rapido_loop.ogg"
+dest_files=[ "res://.import/vallenato_rapido_loop.ogg-4fdd264cf62874c935a1e8a3e2b4aa7e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

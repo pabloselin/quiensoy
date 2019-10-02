@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/globoapretando07.wav-a200a5cbf787f552827efe19a44412f5.sample"
+
+[deps]
+
+source_file="res://sfx/globoapretando07.wav"
+dest_files=[ "res://.import/globoapretando07.wav-a200a5cbf787f552827efe19a44412f5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

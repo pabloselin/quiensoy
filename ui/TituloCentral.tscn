@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://gfx/texts/title.png" type="Texture" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Bounce"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0.95 ), Vector2( 1, 1 ), Vector2( 1, 0.974178 ), Vector2( 1, 1 ), Vector2( 1, 0.974178 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 180.0, 180.0 ]
+}
+
+[node name="TituloCentral" type="Sprite"]
+position = Vector2( 1095.33, 531.227 )
+scale = Vector2( 1, 0.964353 )
+texture = ExtResource( 1 )
+offset = Vector2( -11.8336, 9.01199 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Bounce"
+anims/Bounce = SubResource( 1 )

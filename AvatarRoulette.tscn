@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://AvatarRoulette.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/bgs/paper_lines.jpg" type="Texture" id=3]
+[ext_resource path="res://gfx/particles/avcont_01.png" type="Texture" id=4]
+[ext_resource path="res://gfx/particles/avcont_02.png" type="Texture" id=5]
+[ext_resource path="res://gfx/particles/avcont_03.png" type="Texture" id=6]
+[ext_resource path="res://gfx/particles/avcont_04.png" type="Texture" id=7]
+[ext_resource path="res://avatars/PartRotator.tscn" type="PackedScene" id=8]
+[ext_resource path="res://sfx/bgm/vallenato.ogg" type="AudioStream" id=9]
+[ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sfx/cui1.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=13]
+[ext_resource path="res://ambient/Fog.tscn" type="PackedScene" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "appear",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 128
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotatepaper"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("paper_lines2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -0.986232, 1.5, -1.5, -0.986232 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("paper_lines:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -12.8183, -10.0, -12.8183 ]
+}
+
+[node name="AvatarRoulette" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 93.4816, 969.836 ],
+"_edit_vertical_guides_": [ 1085.53, 1258.14, 2103.51, 1716.31 ]
+}
+
+[node name="Playa" parent="." instance=ExtResource( 2 )]
+position = Vector2( 245.142, 57.6805 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="paper_lines" type="Sprite" parent="."]
+modulate = Color( 0.509804, 0.509804, 0.509804, 1 )
+position = Vector2( 1126.1, 525.543 )
+rotation = -0.223722
+scale = Vector2( 0.395745, 0.68 )
+texture = ExtResource( 3 )
+
+[node name="paper_lines2" type="Sprite" parent="."]
+position = Vector2( 1114.35, 531.416 )
+rotation = -0.017213
+scale = Vector2( 0.395745, 0.68 )
+texture = ExtResource( 3 )
+
+[node name="ResultZone" type="Node2D" parent="."]
+position = Vector2( 1192.14, 528.538 )
+
+[node name="ZoneFrame" type="AnimatedSprite" parent="ResultZone"]
+position = Vector2( -2.93628, -2.9364 )
+frames = SubResource( 1 )
+animation = "appear"
+
+[node name="FinalFeet" type="Node2D" parent="ResultZone"]
+position = Vector2( 6.84961, 284.257 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="FinalTorso" type="Node2D" parent="ResultZone"]
+scale = Vector2( 0.6, 0.6 )
+
+[node name="FinalHead" type="Node2D" parent="ResultZone"]
+position = Vector2( -10.2739, -277.407 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="PartRotator" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1092.31, 554.965 )
+scale = Vector2( 0.6, 0.6 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -15.0
+autoplay = true
+
+[node name="FinalAvatarTimer" type="Timer" parent="."]
+
+[node name="PlayerLabel" type="Label" parent="."]
+margin_left = 90.6914
+margin_top = 252.457
+margin_right = 835.693
+margin_bottom = 585.457
+custom_fonts/font = SubResource( 2 )
+text = "[CurrentPlayer]"
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="CurrentCamera" parent="." instance=ExtResource( 11 )]
+rotation = 0.0
+
+[node name="PickPart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Redoble" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "rotatepaper"
+anims/rotatepaper = SubResource( 3 )
+
+[node name="Fog" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1193.27, 528.726 )
+scale = Vector2( 1, 1 )
+
+[node name="Fog2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1193.27, 813.524 )
+scale = Vector2( 1, 1 )
+
+[node name="Fog3" parent="." instance=ExtResource( 14 )]
+position = Vector2( 1193.27, 276.374 )
+scale = Vector2( 1, 1 )
+[connection signal="buildAvatar" from="PartRotator" to="." method="_on_PartRotator_buildAvatar"]
+[connection signal="registeredPart" from="PartRotator" to="." method="_on_PartRotator_registeredPart"]
+[connection signal="timeout" from="FinalAvatarTimer" to="." method="_on_FinalAvatarTimer_timeout"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tumbecarnaval150.ogg-bebcc9c36e0fad05354e2b60bb8331cf.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/tumbecarnaval150.ogg"
+dest_files=[ "res://.import/tumbecarnaval150.ogg-bebcc9c36e0fad05354e2b60bb8331cf.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

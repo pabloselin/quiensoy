@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/aceleracion.ogg-6db18258d513f31e96ab820001ea9a25.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/aceleracion.ogg"
+dest_files=[ "res://.import/aceleracion.ogg-6db18258d513f31e96ab820001ea9a25.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

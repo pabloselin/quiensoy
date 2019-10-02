@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Vallenato rapìdo loop.ogg-a78dd8182b14416f41a3e314520aee6b.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/Vallenato rapìdo loop.ogg"
+dest_files=[ "res://.import/Vallenato rapìdo loop.ogg-a78dd8182b14416f41a3e314520aee6b.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

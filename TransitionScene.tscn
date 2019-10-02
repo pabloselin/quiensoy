@@ -1,0 +1,580 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://TransitionScene.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sfx/bgm/cumbia_urbana.ogg" type="AudioStream" id=3]
+[ext_resource path="res://gfx/objects/basura.png" type="Texture" id=4]
+[ext_resource path="res://gfx/objects/basura2.png" type="Texture" id=5]
+[ext_resource path="res://gfx/objects/radiacion_01.png" type="Texture" id=6]
+[ext_resource path="res://gfx/objects/tuberia.png" type="Texture" id=7]
+[ext_resource path="res://gfx/objects/tuberia_01.png" type="Texture" id=8]
+[ext_resource path="res://gfx/objects/bolsa.png" type="Texture" id=9]
+[ext_resource path="res://gfx/objects/transito.png" type="Texture" id=10]
+[ext_resource path="res://gfx/objects/botella_01.png" type="Texture" id=11]
+[ext_resource path="res://gfx/objects/botella_02.png" type="Texture" id=12]
+[ext_resource path="res://gfx/objects/funda_01.png" type="Texture" id=13]
+[ext_resource path="res://gfx/objects/lata_01.png" type="Texture" id=14]
+[ext_resource path="res://ambient/Mosquita.tscn" type="PackedScene" id=15]
+[ext_resource path="res://gfx/objects/bote.png" type="Texture" id=16]
+[ext_resource path="res://gfx/objects/cangrejo.png" type="Texture" id=17]
+[ext_resource path="res://gfx/objects/concha.png" type="Texture" id=18]
+[ext_resource path="res://gfx/objects/perro_01.png" type="Texture" id=19]
+[ext_resource path="res://gfx/objects/tortuga.png" type="Texture" id=20]
+[ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=21]
+[ext_resource path="res://gfx/objects/triciclo_arriba.png" type="Texture" id=22]
+[ext_resource path="res://gfx/objects/planta.png" type="Texture" id=23]
+[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=24]
+[ext_resource path="res://fonts/SHARKBAIT 2.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=26]
+[ext_resource path="res://guias/Skaty.tscn" type="PackedScene" id=27]
+[ext_resource path="res://guias/Malku.tscn" type="PackedScene" id=28]
+[ext_resource path="res://guias/Surf.tscn" type="PackedScene" id=29]
+[ext_resource path="res://guias/Flecha.tscn" type="PackedScene" id=30]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CameraTravelling"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1, 2.1, 4.1, 8.2, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 806.819, 657.083 ), Vector2( 781.59, 459.461 ), Vector2( 1300, 700 ), Vector2( 806.819, 657.083 ), Vector2( 1075.33, 606.166 ), Vector2( 1046.49, 564.579 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6.1, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Basuras/Basura1:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6.1, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 971, 1501 ), Vector2( 743, 1430 ), Vector2( 968, 960 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Basuras/Basura1:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = false
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 6.1, 7.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Basuras/Basura2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 5.6, 6.7, 6.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2819.33, -208.537 ), Vector2( 2853.58, 281.207 ), Vector2( 1832.99, 199.012 ), Vector2( 1812.45, 192.163 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Basuras/Basura3:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6.2, 7.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Basuras/Basura4:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 6.6, 8.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2599.17, 974.243 ), Vector2( 2245.97, 940.605 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Basuras/Basura5:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 5.4, 7.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 897.874, -400 ), Vector2( 849.357, -357.402 ), Vector2( 904.018, 151.37 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Basuras/Basura6:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 6.2, 7.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -452.818, 589.168 ), Vector2( -452.818, 589.168 ), Vector2( 112.603, 661.268 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Basuras/Basura2:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 5.6, 6.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 90.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Basuras/MiniBasuras:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 5.5, 6.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Basuras/Basura7:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 6.8, 8.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1389.35, -300 ), Vector2( 1389.35, -300 ), Vector2( 1435.81, 123.309 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Moscas:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 7.4, 9.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Titulo/FondoCirculo:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 12.1, 12.8, 16.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1.48 ), Vector2( 1, 1 ), Vector2( 13, 13 ), Vector2( 13, 13 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Titulo/FondoCirculo:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 11.4, 12.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Titulo/Personajes:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 13.2, 13.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Titulo:rotation_degrees")
+tracks/16/interp = 2
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 11.1, 12.2, 13.1, 14, 14.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 180.0, 180.0, 0.0 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("Titulo/Texto:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 13, 14.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float radius = 5.0;
+uniform vec4  modulate : hint_color;
+
+void fragment() {
+	vec2 ps = TEXTURE_PIXEL_SIZE;
+
+	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
+
+	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
+	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
+	shadow /= 8.0;
+	shadow *= modulate;
+
+	vec4 col = texture(TEXTURE, UV);
+	COLOR = mix(shadow, col, col.a);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/radius = 5.0
+shader_param/modulate = null
+
+[sub_resource type="DynamicFont" id=2]
+size = 300
+font_data = ExtResource( 25 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 230
+use_filter = true
+font_data = ExtResource( 26 )
+
+[node name="TransitionScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="SceneDuration" type="Timer" parent="."]
+
+[node name="Playa" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 0.921569, 0.501961, 1 )
+light_mask = 49153
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="Basuras" type="Node2D" parent="."]
+
+[node name="Basura1" type="Sprite" parent="Basuras"]
+position = Vector2( 968, 960 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="Basura2" type="Sprite" parent="Basuras"]
+position = Vector2( 1812.45, 192.163 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="Basura3" type="Sprite" parent="Basuras"]
+position = Vector2( 1951, 508.773 )
+texture = ExtResource( 6 )
+
+[node name="Basura4" type="Sprite" parent="Basuras"]
+position = Vector2( 2245.97, 940.605 )
+rotation = 1.5708
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 7 )
+
+[node name="Basura5" type="Sprite" parent="Basuras"]
+position = Vector2( 904.018, 151.37 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 8 )
+
+[node name="Basura6" type="Sprite" parent="Basuras"]
+position = Vector2( 112.603, 661.268 )
+rotation = 0.401426
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
+[node name="Basura7" type="Sprite" parent="Basuras"]
+position = Vector2( 1435.81, 123.309 )
+rotation = 0.401426
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 10 )
+
+[node name="MiniBasuras" type="Node2D" parent="Basuras"]
+editor/display_folded = true
+
+[node name="MiniBasura" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 459.167, 808.286 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="MiniBasura2" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 2106.1, 872.798 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 12 )
+
+[node name="MiniBasura3" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( -43.7341, 1054.11 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 12 )
+
+[node name="MiniBasura4" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 2116.89, 520.967 )
+rotation = -2.47488
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 13 )
+
+[node name="MiniBasura5" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 431.128, 551.186 )
+rotation = -2.47488
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 14 )
+
+[node name="MiniBasura6" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 2261.51, 745.448 )
+rotation = -2.47488
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 14 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1046.49, 564.579 )
+current = true
+zoom = Vector2( 1.2, 1.2 )
+
+[node name="CamaraPlaya" type="AnimationPlayer" parent="."]
+autoplay = "CameraTravelling"
+anims/CameraTravelling = SubResource( 1 )
+
+[node name="Moscas" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Mosquita" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 738.209, 252.953 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita13" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 977.943, 201.581 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita14" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 2070.45, 328.298 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita15" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( -87.1616, 903.66 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita2" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 556.892, 537.482 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita3" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 2275.22, 930.802 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita4" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 1234.74, 71.6351 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita5" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 2046.49, 194.373 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita6" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( -152.233, 1020.1 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita7" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 440.254, 136.51 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita8" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 1831.69, 381.27 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita9" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 3290.65, 1059.38 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita10" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 2136.5, 569.633 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita11" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 201.5, 655.252 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Mosquita12" parent="Moscas" instance=ExtResource( 15 )]
+position = Vector2( 1725.53, 162.084 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Cosas" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="Bote" type="Sprite" parent="Cosas"]
+position = Vector2( 1637.04, 1263.74 )
+rotation = -0.380482
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 16 )
+
+[node name="Cangri" type="Sprite" parent="Cosas"]
+position = Vector2( 493.168, 366.451 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 17 )
+
+[node name="Concha" type="Sprite" parent="Cosas"]
+position = Vector2( 254.355, 808.225 )
+rotation = 1.14319
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha2" type="Sprite" parent="Cosas"]
+position = Vector2( 956.496, 459.487 )
+rotation = 0.349066
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha3" type="Sprite" parent="Cosas"]
+position = Vector2( 1736.47, 452.807 )
+rotation = -0.174533
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="Concha4" type="Sprite" parent="Cosas"]
+position = Vector2( 2022.07, 780.161 )
+rotation = -0.174533
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 18 )
+
+[node name="perro_01" type="Sprite" parent="Cosas"]
+position = Vector2( -233.775, 440.06 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 19 )
+
+[node name="tortuga" type="Sprite" parent="Cosas"]
+position = Vector2( 2354.11, 546.847 )
+rotation = 0.785398
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 20 )
+
+[node name="quitasol" type="Sprite" parent="Cosas"]
+position = Vector2( -316.522, 1048.87 )
+texture = ExtResource( 21 )
+
+[node name="triciclo_arriba" type="Sprite" parent="Cosas"]
+position = Vector2( 145.073, -51.4024 )
+rotation = 1.08121
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 22 )
+
+[node name="planta" type="Sprite" parent="Cosas"]
+position = Vector2( 342.122, 261.707 )
+rotation = 0.785398
+texture = ExtResource( 23 )
+
+[node name="Titulo" type="Sprite" parent="."]
+position = Vector2( 1077.75, 577.673 )
+scale = Vector2( 0.08, 0.08 )
+
+[node name="FondoCirculo" type="Sprite" parent="Titulo"]
+material = SubResource( 5 )
+position = Vector2( -97.7969, 447.58 )
+scale = Vector2( 13, 13 )
+texture = ExtResource( 24 )
+
+[node name="Texto" type="Node2D" parent="Titulo"]
+position = Vector2( 20483.4, 8465.58 )
+
+[node name="Mision" type="Label" parent="Titulo/Texto"]
+light_mask = 2
+margin_left = -28947.2
+margin_top = -13528.7
+margin_right = -28068.2
+margin_bottom = -13227.7
+rect_scale = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 411.932, 152.479 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.690196, 0, 0, 1 )
+text = "MISION"
+align = 1
+
+[node name="Limpieza" type="Label" parent="Titulo/Texto"]
+light_mask = 2
+margin_left = -22261.3
+margin_top = -11048.6
+margin_right = -19394.3
+margin_bottom = -10596.6
+rect_scale = Vector2( 10, 10 )
+rect_pivot_offset = Vector2( 1452.6, 185.156 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "LIMPIEZA DE PLAYA"
+align = 1
+
+[node name="Personajes" type="Node2D" parent="Titulo"]
+position = Vector2( -10746.9, -6906.19 )
+
+[node name="Skaty" parent="Titulo/Personajes" instance=ExtResource( 27 )]
+position = Vector2( 4474.93, 10782.1 )
+scale = Vector2( 4, 4 )
+
+[node name="Malku" parent="Titulo/Personajes" instance=ExtResource( 28 )]
+position = Vector2( 8844.15, 10570.7 )
+scale = Vector2( 5, 5 )
+
+[node name="Surf" parent="Titulo/Personajes" instance=ExtResource( 29 )]
+position = Vector2( 12649.6, 10993.5 )
+scale = Vector2( 4, 4 )
+
+[node name="Flecha" parent="Titulo/Personajes" instance=ExtResource( 30 )]
+position = Vector2( 16666.5, 10641.2 )
+scale = Vector2( 5, 5 )
+[connection signal="timeout" from="SceneDuration" to="." method="_on_SceneDuration_timeout"]

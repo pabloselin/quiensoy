@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/02-wara.ogg-9fd81e4da48c7e524767638ed3c1587f.oggstr"
+
+[deps]
+
+source_file="res://sfx/02-wara.ogg"
+dest_files=[ "res://.import/02-wara.ogg-9fd81e4da48c7e524767638ed3c1587f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

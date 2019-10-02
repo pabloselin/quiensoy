@@ -1,0 +1,168 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sfx/bgm/huayno150.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sfx/bgm/aceleracion.ogg" type="AudioStream" id=4]
+[ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://fonts/funnydeath.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 1075.41, 270.842, 810.842, 540.302 ],
+"_edit_vertical_guides_": [ 2161.21, 541.0, 1620.18, 1080.61 ]
+}
+
+[node name="Fondo" parent="." instance=ExtResource( 2 )]
+
+[node name="CameraTween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1080, 540 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
+
+[node name="Sonidos" type="Node" parent="."]
+
+[node name="AvatarPrompt" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource( 3 )
+
+[node name="Acelerate" type="AudioStreamPlayer" parent="Sonidos"]
+stream = ExtResource( 4 )
+
+[node name="PlayerNames" type="Control" parent="."]
+editor/display_folded = true
+
+[node name="Player1Container" type="VBoxContainer" parent="PlayerNames"]
+margin_left = 1080.0
+margin_top = 540.0
+margin_right = 2160.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = 180.0
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerNames/Player1Container"]
+margin_top = 235.0
+margin_right = 1080.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Score" type="HBoxContainer" parent="PlayerNames/Player1Container"]
+margin_top = 305.0
+margin_right = 1080.0
+margin_bottom = 305.0
+alignment = 1
+
+[node name="Player2Container" type="VBoxContainer" parent="PlayerNames"]
+margin_left = 2160.0
+margin_top = 540.0
+margin_right = 3240.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = 180.0
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerNames/Player2Container"]
+margin_top = 235.0
+margin_right = 1080.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Score" type="HBoxContainer" parent="PlayerNames/Player2Container"]
+margin_top = 305.0
+margin_right = 1080.0
+margin_bottom = 305.0
+alignment = 1
+
+[node name="Player3Container" type="VBoxContainer" parent="PlayerNames"]
+margin_top = 540.0
+margin_right = 1080.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerNames/Player3Container"]
+margin_top = 235.0
+margin_right = 1080.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Score" type="HBoxContainer" parent="PlayerNames/Player3Container"]
+margin_top = 305.0
+margin_right = 1080.0
+margin_bottom = 305.0
+alignment = 1
+
+[node name="Player4Container" type="VBoxContainer" parent="PlayerNames"]
+margin_left = 1080.0
+margin_top = 540.0
+margin_right = 2160.0
+margin_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerName" type="Label" parent="PlayerNames/Player4Container"]
+margin_top = 235.0
+margin_right = 1080.0
+margin_bottom = 301.0
+custom_fonts/font = SubResource( 1 )
+text = "PLAYERNAME"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Score" type="HBoxContainer" parent="PlayerNames/Player4Container"]
+margin_top = 305.0
+margin_right = 1080.0
+margin_bottom = 305.0
+alignment = 1
+
+[node name="Container" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2160.0
+margin_bottom = 1080.0
+
+[node name="GamePrompt" type="Label" parent="Container"]
+margin_left = 735.0
+margin_top = 508.0
+margin_right = 1424.0
+margin_bottom = 572.0
+custom_fonts/font = SubResource( 2 )
+text = "[CURRENTGAMEMODE]"
+align = 1
+valign = 1
+[connection signal="tween_all_completed" from="CameraTween" to="." method="_on_CameraTween_tween_all_completed"]

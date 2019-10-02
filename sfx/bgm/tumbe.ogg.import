@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tumbe.ogg-f0a101451368452f4d063dbd4274e803.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/tumbe.ogg"
+dest_files=[ "res://.import/tumbe.ogg-f0a101451368452f4d063dbd4274e803.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

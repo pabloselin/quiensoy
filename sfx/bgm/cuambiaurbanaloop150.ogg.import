@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/cuambiaurbanaloop150.ogg-c63ce5e9da07755e14b695ca838675b2.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/cuambiaurbanaloop150.ogg"
+dest_files=[ "res://.import/cuambiaurbanaloop150.ogg-c63ce5e9da07755e14b695ca838675b2.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flecha_larga_clavada.wav-0ef34dc0565e8a905ad0b39a02ee284d.sample"
+
+[deps]
+
+source_file="res://sfx/flecha_larga_clavada.wav"
+dest_files=[ "res://.import/flecha_larga_clavada.wav-0ef34dc0565e8a905ad0b39a02ee284d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

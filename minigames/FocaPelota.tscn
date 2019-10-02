@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://minigames/FocaPelota.gd" type="Script" id=1]
+[ext_resource path="res://gfx/sprites/foca.png" type="Texture" id=2]
+[ext_resource path="res://gfx/objects/pelota.png" type="Texture" id=3]
+[ext_resource path="res://sfx/ugl.wav" type="AudioStream" id=4]
+[ext_resource path="res://gfx/bgs/vertline.png" type="Texture" id=5]
+[ext_resource path="res://ui/UIArrows.tscn" type="PackedScene" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 94.4797
+height = 324.229
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 70.1034
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 61.0283, 1125.25 )
+
+[node name="FocaPelota" type="Node2D"]
+light_mask = 2
+script = ExtResource( 1 )
+
+[node name="Foca" type="KinematicBody2D" parent="."]
+light_mask = 2
+position = Vector2( 926.3, 1064.82 )
+
+[node name="foca" type="Sprite" parent="Foca"]
+light_mask = 2
+position = Vector2( -0.0203857, -0.47052 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Foca"]
+light_mask = 2
+position = Vector2( 32.613, 18.6357 )
+shape = SubResource( 1 )
+
+[node name="Pelota" type="RigidBody2D" parent="."]
+light_mask = 2
+position = Vector2( 1218.25, 209.723 )
+mass = 50.5867
+gravity_scale = 9.26
+contacts_reported = 4
+contact_monitor = true
+
+[node name="Sprite" type="Sprite" parent="Pelota"]
+light_mask = 2
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota"]
+light_mask = 2
+position = Vector2( -1.05267, 15.7895 )
+shape = SubResource( 2 )
+
+[node name="Bounce" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+light_mask = 2
+position = Vector2( 266.862, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+light_mask = 2
+position = Vector2( 4.65894, 414.65 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+light_mask = 2
+position = Vector2( 28.0906, 533.723 )
+texture = ExtResource( 5 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 2
+position = Vector2( 1801.39, 32.6812 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+light_mask = 2
+position = Vector2( 4.65894, 414.65 )
+shape = SubResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D2"]
+light_mask = 2
+position = Vector2( -28.0906, 533.723 )
+texture = ExtResource( 5 )
+
+[node name="UIArrows" parent="." instance=ExtResource( 6 )]
+position = Vector2( 952.524, 893.27 )
+[connection signal="body_entered" from="Pelota" to="." method="_on_Pelota_body_entered"]

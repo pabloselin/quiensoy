@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cui3.wav-c9c62b1653da8d61c1a33a9c86d564a9.sample"
+
+[deps]
+
+source_file="res://sfx/cui3.wav"
+dest_files=[ "res://.import/cui3.wav-c9c62b1653da8d61c1a33a9c86d564a9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

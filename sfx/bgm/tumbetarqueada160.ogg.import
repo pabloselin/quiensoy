@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/tumbetarqueada160.ogg-f73f5da1b80c05991188f61b4551154e.oggstr"
+
+[deps]
+
+source_file="res://sfx/bgm/tumbetarqueada160.ogg"
+dest_files=[ "res://.import/tumbetarqueada160.ogg-f73f5da1b80c05991188f61b4551154e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
