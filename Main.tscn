@@ -47,7 +47,6 @@ stream = ExtResource( 3 )
 stream = ExtResource( 4 )
 
 [node name="PlayerNames" type="Control" parent="."]
-editor/display_folded = true
 
 [node name="Player1Container" type="VBoxContainer" parent="PlayerNames"]
 margin_left = 1080.0

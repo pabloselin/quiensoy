@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Quien Soy - Germina"
 run/main_scene="res://AbyaYalaWrapper.tscn"
+boot_splash/image="res://gfx/bgs/splash_01.png"
 config/icon="res://icon.png"
 
 [autoload]

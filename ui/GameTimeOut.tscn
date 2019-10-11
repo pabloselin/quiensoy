@@ -1,75 +1,44 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://gfx/timer/02/timer-00.png" type="Texture" id=2]
-[ext_resource path="res://gfx/timer/02/timer-01.png" type="Texture" id=3]
-[ext_resource path="res://gfx/timer/02/timer-02.png" type="Texture" id=4]
-[ext_resource path="res://gfx/timer/02/timer-03.png" type="Texture" id=5]
-[ext_resource path="res://gfx/timer/02/timer-04.png" type="Texture" id=6]
+[ext_resource path="res://gfx/timer/02/timer-00.png" type="Texture" id=1]
+[ext_resource path="res://gfx/timer/02/timer-01.png" type="Texture" id=2]
+[ext_resource path="res://gfx/timer/02/timer-02.png" type="Texture" id=3]
+[ext_resource path="res://gfx/timer/02/timer-03.png" type="Texture" id=4]
+[ext_resource path="res://gfx/timer/02/timer-04.png" type="Texture" id=5]
+[ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=7]
 [ext_resource path="res://sfx/inflando02.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/exito4.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/derrota3.wav" type="AudioStream" id=10]
 
-[sub_resource type="DynamicFont" id=1]
-size = 260
-outline_color = Color( 0, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 1 )
-
-[sub_resource type="Shader" id=2]
-code = "shader_type canvas_item;
-render_mode blend_mix;
-
-uniform float radius = 5.0;
-uniform vec4  modulate : hint_color;
-
-void fragment() {
-	vec2 ps = TEXTURE_PIXEL_SIZE;
-
-	vec4 shadow = texture(TEXTURE, UV + vec2(-radius, -radius) * ps);
-
-	shadow += texture(TEXTURE, UV + vec2(-radius, 0.0) * ps);
-	shadow += texture(TEXTURE, UV + vec2(-radius, radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(0.0, -radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(0.0, radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, -radius) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, 0.0) * ps);
-	shadow += texture(TEXTURE, UV + vec2(radius, radius) * ps);
-	shadow /= 8.0;
-	shadow *= modulate;
-
-	vec4 col = texture(TEXTURE, UV);
-	COLOR = mix(shadow, col, col.a);
-}"
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
-shader_param/radius = 5.0
-shader_param/modulate = null
-
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "win",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": false,
-"name": "explode",
-"speed": 16.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "countdown",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "explode",
+"speed": 16.0
 } ]
+
+[sub_resource type="DynamicFont" id=4]
+size = 180
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=5]
 loop = true
@@ -87,27 +56,28 @@ tracks/0/keys = {
 }
 
 [node name="GameTimeOut" type="Node2D"]
-position = Vector2( 235.402, 848.428 )
+position = Vector2( 233.454, 856.22 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="FishCountDown" type="AnimatedSprite" parent="."]
+modulate = Color( 0.815686, 0.756863, 0.380392, 1 )
+position = Vector2( 15.5842, 132.465 )
+scale = Vector2( 0.8, 0.8 )
+frames = SubResource( 3 )
+animation = "idle"
+
 [node name="TimeLeft" type="Label" parent="."]
-margin_left = -157.449
-margin_top = 49.8615
-margin_right = 379.551
-margin_bottom = 382.862
+margin_left = -258.746
+margin_top = -285.198
+margin_right = 278.254
+margin_bottom = 105.802
 rect_pivot_offset = Vector2( 281.112, 179.501 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "0"
 align = 1
 valign = 1
 autowrap = true
-
-[node name="FishCountDown" type="AnimatedSprite" parent="."]
-material = SubResource( 3 )
-position = Vector2( -196.169, 88.2759 )
-frames = SubResource( 4 )
-animation = "idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "shakeNumber"

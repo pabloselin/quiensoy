@@ -1,56 +1,21 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
-[ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
-[ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
-[ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
-[ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
-[ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
-[ext_resource path="res://objects/ObjectPlayer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://ui/TimerUI.tscn" type="PackedScene" id=10]
-[ext_resource path="res://sfx/arruga1.wav" type="AudioStream" id=11]
-[ext_resource path="res://sfx/globoapretando02.wav" type="AudioStream" id=12]
-[ext_resource path="res://sfx/bgm/tumbe.ogg" type="AudioStream" id=13]
-[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=14]
-[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Instructivo.tscn" type="PackedScene" id=16]
-[ext_resource path="res://gfx/icons/next.png" type="Texture" id=17]
+[ext_resource path="res://ui/UnfoldPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/ObjectPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/TimerUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sfx/arruga1.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/globoapretando02.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/bgm/tumbe.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=10]
+[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instructivo.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gfx/icons/next.png" type="Texture" id=13]
+[ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=14]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="SpriteFrames" id=3]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="SpriteFrames" id=4]
-animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 18.0
-} ]
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "moveAround"
 length = 6.0
 loop = true
@@ -79,18 +44,18 @@ tracks/1/keys = {
 "values": [ 0.0, -180.0, -180.0, 0.0 ]
 }
 
-[sub_resource type="Shader" id=6]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 uniform float amount : hint_range(0,10);
 void fragment() {
     COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/amount = 5.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
@@ -105,7 +70,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "ZoomStart"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:zoom")
@@ -121,14 +86,12 @@ tracks/0/keys = {
 }
 
 [node name="PlayersStart" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Fondo" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 0.662745, 0, 0.235294 )
 
 [node name="Players" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Player1" type="TouchScreenButton" parent="Players"]
 modulate = Color( 0.635294, 0.192157, 1, 0 )
@@ -155,46 +118,34 @@ scale = Vector2( 0.180692, 0.308856 )
 normal = ExtResource( 3 )
 
 [node name="PlayerAnimations" type="Node2D" parent="Players"]
-editor/display_folded = true
 
-[node name="Player1Animation2" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-position = Vector2( 1616.5, 271.982 )
-frames = SubResource( 1 )
-animation = "unfold"
-flip_v = true
+[node name="Player1Animation2" parent="Players/PlayerAnimations" instance=ExtResource( 4 )]
+position = Vector2( 1619.92, 278.832 )
 
-[node name="Player1Animation3" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-position = Vector2( 541.115, 802.824 )
-frames = SubResource( 2 )
-animation = "unfold"
+[node name="Player1Animation3" parent="Players/PlayerAnimations" instance=ExtResource( 4 )]
+position = Vector2( 544.542, 813.098 )
 
-[node name="Player1Animation4" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-position = Vector2( 1626.77, 809.673 )
-frames = SubResource( 3 )
-animation = "unfold"
+[node name="Player1Animation4" parent="Players/PlayerAnimations" instance=ExtResource( 4 )]
+position = Vector2( 1619.83, 804.64 )
 
-[node name="Player1Animation" type="AnimatedSprite" parent="Players/PlayerAnimations"]
-position = Vector2( 544.54, 271.982 )
-frames = SubResource( 4 )
-animation = "unfold"
-flip_v = true
+[node name="Player1Animation" parent="Players/PlayerAnimations" instance=ExtResource( 4 )]
+position = Vector2( 544.542, 275.407 )
 
 [node name="PlayerObjects" type="Node2D" parent="Players"]
-editor/display_folded = true
 
-[node name="ObjectPlayer1" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+[node name="ObjectPlayer1" parent="Players/PlayerObjects" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 555.112, 267.793 )
 
-[node name="ObjectPlayer2" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+[node name="ObjectPlayer2" parent="Players/PlayerObjects" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 1637.44, 270.582 )
 
-[node name="ObjectPlayer3" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+[node name="ObjectPlayer3" parent="Players/PlayerObjects" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 552.323, 803.379 )
 
-[node name="ObjectPlayer4" parent="Players/PlayerObjects" instance=ExtResource( 9 )]
+[node name="ObjectPlayer4" parent="Players/PlayerObjects" instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 1643.02, 811.747 )
 
@@ -204,7 +155,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -52.0
 
-[node name="TimerUI" parent="." instance=ExtResource( 10 )]
+[node name="TimerUI" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1085.31, 576.806 )
 
 [node name="Seconds" type="Timer" parent="TimerUI"]
@@ -214,56 +165,63 @@ position = Vector2( 1085.31, 576.806 )
 [node name="Sounds" type="Node" parent="."]
 
 [node name="Player1Sound" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 11 )
+stream = ExtResource( 7 )
 
 [node name="CountDown" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 12 )
+stream = ExtResource( 8 )
 pitch_scale = 0.7
 
 [node name="Music" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 13 )
+stream = ExtResource( 9 )
 autoplay = true
 
 [node name="Explode" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource( 14 )
+stream = ExtResource( 10 )
 
 [node name="Ayudas" type="Node2D" parent="."]
 
-[node name="TouchIt" parent="Ayudas" instance=ExtResource( 15 )]
+[node name="TouchIt" parent="Ayudas" instance=ExtResource( 11 )]
 modulate = Color( 0, 1, 0.156863, 1 )
-position = Vector2( 547.886, 845.688 )
+position = Vector2( 473.943, 845.731 )
+rotation = 0.392699
 scale = Vector2( 0.4, 0.4 )
 
 [node name="MoveHand" type="AnimationPlayer" parent="Ayudas"]
-anims/moveAround = SubResource( 5 )
+anims/moveAround = SubResource( 1 )
 
 [node name="HelpTimer" type="Timer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 7 )
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 2160.0
 margin_bottom = 1080.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Instructivo" parent="." instance=ExtResource( 16 )]
+[node name="Instructivo" parent="." instance=ExtResource( 12 )]
 position = Vector2( 1089.08, 558.24 )
 
 [node name="FadeBg" type="AnimationPlayer" parent="."]
-anims/Fade = SubResource( 8 )
+anims/Fade = SubResource( 4 )
 
 [node name="Skip" type="TouchScreenButton" parent="."]
 position = Vector2( 1980.87, 952.489 )
 scale = Vector2( 0.6, 0.6 )
-normal = ExtResource( 17 )
+normal = ExtResource( 13 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1080, 540 )
 current = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera2D"]
-anims/ZoomStart = SubResource( 9 )
+anims/ZoomStart = SubResource( 5 )
+
+[node name="TouchArea" parent="." instance=ExtResource( 14 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 2160.0
+margin_bottom = 1080.0
 [connection signal="timeout" from="TimerUI/Seconds" to="." method="_on_Seconds_timeout"]
 [connection signal="instructionsFinished" from="Instructivo" to="." method="_on_Instructivo_instructionsFinished"]
 [connection signal="pressed" from="Skip" to="." method="_on_Skip_pressed"]

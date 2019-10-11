@@ -1,18 +1,7 @@
 extends Sprite
 
-var objects = [
-	"arepa_02.png",
-	"arepa_01.png",
-	"arepa_03.png",
-	"botella_01.png",
-	"botella_02.png",
-	"bote_01.png",
-	"bote_02.png",
-	"cangrejo_01.png",
-	"cangrejo_02.png"
-]
-
 # Assigns random sprite
+var objects = GameVars.playerObjects
 
 func _ready():
 	#var objects = GameVars.playerObjects
@@ -22,5 +11,6 @@ func _ready():
 		var randobject = objects[randomInt]
 		var item = load("res://gfx/player_objects/" + randobject)
 		# Removes used object so it doesn't repeat
-		objects.remove(randomInt)
+		GameVars.playerObjects.remove(randomInt)
+		#print(str(objects.size()))
 		get_node(".").texture = item

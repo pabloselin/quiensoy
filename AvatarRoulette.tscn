@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://AvatarRoulette.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -11,9 +11,10 @@
 [ext_resource path="res://sfx/bgm/vallenato.ogg" type="AudioStream" id=9]
 [ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://ui/CurrentCamera.tscn" type="PackedScene" id=11]
-[ext_resource path="res://sfx/cui1.wav" type="AudioStream" id=12]
-[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=13]
-[ext_resource path="res://ambient/Fog.tscn" type="PackedScene" id=14]
+[ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sfx/cui1.wav" type="AudioStream" id=13]
+[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=14]
+[ext_resource path="res://ambient/Fog.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -126,27 +127,34 @@ autowrap = true
 uppercase = true
 
 [node name="CurrentCamera" parent="." instance=ExtResource( 11 )]
+editor/display_folded = true
 rotation = 0.0
 
+[node name="TouchArea" parent="CurrentCamera" instance=ExtResource( 12 )]
+margin_left = -1077.63
+margin_top = -543.22
+margin_right = -1077.63
+margin_bottom = -543.22
+
 [node name="PickPart" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 
 [node name="Redoble" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 13 )
+stream = ExtResource( 14 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "rotatepaper"
 anims/rotatepaper = SubResource( 3 )
 
-[node name="Fog" parent="." instance=ExtResource( 14 )]
+[node name="Fog" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1193.27, 528.726 )
 scale = Vector2( 1, 1 )
 
-[node name="Fog2" parent="." instance=ExtResource( 14 )]
+[node name="Fog2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1193.27, 813.524 )
 scale = Vector2( 1, 1 )
 
-[node name="Fog3" parent="." instance=ExtResource( 14 )]
+[node name="Fog3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1193.27, 276.374 )
 scale = Vector2( 1, 1 )
 [connection signal="buildAvatar" from="PartRotator" to="." method="_on_PartRotator_buildAvatar"]

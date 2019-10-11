@@ -3,8 +3,28 @@ extends Node
 # Comentarios
 # Tortuga añadir mas obstaculos
 # Revisar la boca que habla
-var gameVersion = "0.2.7.2"
-var playerObjects = list_files_in_directory("res://gfx/player_objects")
+var gameVersion = "0.2.7.3"
+var playerObjects = [
+	"arepa_02.png",
+	"arepa_01.png",
+	"arepa_03.png",
+	"botella_01.png",
+	"botella_02.png",
+	"bote_01.png",
+	"bote_02.png",
+	"cangrejo_01.png",
+	"cangrejo_02.png",
+	"fruta.png",
+	"matraca.png",
+	"pescadito.png",
+	"silbon.png",
+	"tambor_01.png",
+	"tortuga.png",
+	"cruzafro.png",
+	"apacheta.png",
+	"canchita.png",
+	"viento.png"
+]
 # Phone Screen Size
 var screenSize = OS.get_screen_size()
 var gameSize = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
@@ -13,6 +33,7 @@ var initialZoom = Vector2(0.5, 0.5)
 var initialCameraPosition = Vector2(gameSize.x / 2, gameSize.y / 2)
 var gamesPerPlayer = 5
 var currentPlayer = "player3"
+
 
 var nameList = ["suri", "kusi", "panqarita", "kurmi", "qhantati", "nayra", "allin", "pawkar", "amaru", "suni", "wara wara", "amaya", "antawara", "katari", "qhantuta", "quri", "inkillay", "urma", "kukuli", "warakusi", "wiñay wara", "qurissia", "kusirimay", "ninasisa", "achanqara", "lliwkilla", "amank'ay", "urpikusi", "shulla", "qhispisisa", "tamya", "mamadi", "bangaly", "seydou", "diarru", "fatounata", "ounar", "moussa", "djanko", "yousuf", "sekou", "fadina", "aminata"]
 
@@ -126,55 +147,66 @@ var miniGames = {
 	"turtle": {
 		"time": 10,
 		"scene": "res://minigames/TurtleCrossing.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Cruza la tortuga"
 	},
 	"dog": {
 		"time": 5,
 		"scene": "res://minigames/TableDog.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Surfea el perro"		
 	},
 	"sing": {
 		"time": 5,
 		"scene": "res://minigames/SingingTile.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Canta la baldosa"
 	},
 	"crab": {
 		"time": 8,
 		"scene": "res://minigames/CrabWalk.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Camina el cangrejo"
 	},
 	"flies": {
 		"time": 5,
 		"scene": "res://minigames/EspantaMoscas.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Espanta las moscas"
 	},
 	"silbon": {
 		"time": 6,
 		"scene": "res://minigames/EspantaSilbon.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Ahuyenta al silbon"
 	},
 	"foca": {
 		"time": 5,
 		"scene": "res://minigames/FocaPelota.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Rebota la pelota"
 	},
 	"pinchapeces": {
 		"time": 8,
 		"scene": "res://minigames/PinchaPeces.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Pincha los peces"
 	},
 	"disparaflecha": {
 		"time": 6,
 		"scene": "res://minigames/DisparaFlecha.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Dispara la flecha"
 	},
 	"cosascayendo": {
 		"time": 5,
 		"scene": "res://minigames/CosasCayendo.tscn",
-		"tile": null
+		"tile": null,
+		"name": "Recoge el reciclaje"
 	}
 }
 
+var currentMiniGames = miniGames.duplicate(true)
 var playerItems = []
 var playersOrder = []
 var transitionMessage = "Put some text in the scene"

@@ -21,8 +21,10 @@ extends Node2D
 var success = false
 var timeout = 5
 var rebootTime = 0.5
-
+var minigameName = null
 var curMiniGame = null
+var scoreStone = preload("res://ui/MiniGameStone.tscn")
+var scoreStoneWin = preload("res://ui/MiniGameStoneWin.tscn")
 
 func _ready():
 	startMiniGame()
@@ -33,14 +35,17 @@ func _process(delta):
 		$RebootTimer.start(rebootTime)
 	
 func chooseMiniGame():
-	var miniGames = GameVars.miniGames.values()
+	var miniGames = GameVars.currentMiniGames.values()
 	# var miniGames = [tableDog]
-	randomize()
-	var randGameSize = randi() % miniGames.size()
-	var miniGame = miniGames[randGameSize]
-	timeout = miniGame.time
-	var randGame = load(miniGame.scene)
-	return randGame
+	if miniGames.size() > 0:
+		randomize()
+		var randGameSize = randi() % miniGames.size()
+		var miniGame = miniGames[randGameSize]
+		GameVars.currentMiniGames.erase(miniGame)
+		minigameName = miniGame["name"]
+		timeout = miniGame.time
+		var randGame = load(miniGame.scene)
+		return randGame
 		
 func startMiniGame():
 	$UnfoldBG.play("unfold")
@@ -50,8 +55,26 @@ func startMiniGame():
 	curMiniGame.connect("minigamewin", self, "_on_minigamewin")
 	curMiniGame.connect("minigamelose", self, "_on_minigamelose")
 	$Timer.start(timeout)
+	putLabels()
 	$GameTimeOut/Inflate.play()
 	$GameTimeOut/FishCountDown.play("idle")
+
+func putLabels():
+	$GameName.text = minigameName
+	var wins = GameVars.playerProps[GameVars.currentPlayer]["wins"]
+	var loses = GameVars.playerProps[GameVars.currentPlayer]["loses"]
+	
+	for i in range(wins):
+		var scoreStoneInstance = scoreStoneWin.instance()
+		scoreStoneInstance.modulate = Color(0.168627, 0.788235, 0.098039)
+		$Score.add_child(scoreStoneInstance)
+	for i in range(loses):
+		var scoreStoneInstance = scoreStone.instance()
+		scoreStoneInstance.modulate = Color(0.804688, 0.084869, 0.084869)
+		$Score.add_child(scoreStoneInstance)
+	
+	if GameVars.playerProps[GameVars.currentPlayer]["name"]:
+		$AvatarName.text = GameVars.playerProps[GameVars.currentPlayer]["name"]
 
 func  chooseWinAnimation():
 	var personajes = ["ShowMalku", "ShowSkaty", "ShowSurf", "ShowFlecha"]
@@ -77,13 +100,16 @@ func endMiniGame():
 	yield($ShowPersonaje, "animation_finished")
 	$GameTimeOut.visible = false
 	$CurrentAvatar.visible = false
+	$GameName.visible = false
+	$AvatarName.visible = false
+	$Score.visible = false
 	$UnfoldBG.play("unfold", true)
 	yield(get_tree().create_timer(1), "timeout")
 	
 	if Utils.isGameFinished():
-		SceneChanger.change_scene_tiled("res://FinalScene.tscn")
+		SceneChanger.change_scene_tiled("res://Apacheta.tscn")
 	else:
-		SceneChanger.change_scene_tiled("res://Main.tscn")
+		SceneChanger.change_scene_tiled("res://Main.tscn", 0.01)
 	
 func add_win():
 	GameVars.playerProps[GameVars.currentPlayer]["wins"] += 1

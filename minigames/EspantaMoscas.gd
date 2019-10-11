@@ -4,6 +4,7 @@ signal minigamewin
 signal minigamelose
 var moscas = []
 var pressed = false
+var win = false
 var altTime = GameVars.miniGames["flies"]["time"] - .2
 
 func _ready():
@@ -20,8 +21,10 @@ func detect_flying():
 		var path = moscas[i].get_child(0)
 		print(str(path.offset))
 		if path.offset > 1200:
-			emit_signal("minigamelose")
-
+			if win == false:
+				emit_signal("minigamelose")
+				win = true
+				
 func flyaway():
 	if pressed == true:
 		for i in moscas.size():

@@ -62,7 +62,7 @@ func zoomToMain():
 func _on_CameraTween_tween_all_completed():
 	if GameVars.transitionType == "minigame":
 		yield(get_tree().create_timer(6), "timeout")
-		SceneChanger.change_scene_tiled("res://minigames/MiniGameBase.tscn")
+		SceneChanger.change_scene("res://minigames/MiniGameBase.tscn", 0.01)
 	elif GameVars.transitionType == "avatar":
 		yield(get_tree().create_timer(4.22), "timeout")
 		SceneChanger.change_scene_tiled("res://AvatarRoulette.tscn")

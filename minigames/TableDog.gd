@@ -13,7 +13,7 @@ func _ready():
 	$AlmostCountDown.start(almostTimeOut)
 
 func _process(delta):
-	rotateDog()
+	rotateDog(delta)
 	trackDog()
 
 func _input(event):
@@ -33,12 +33,12 @@ func moveDog(position):
 			angleProgress -= .2
 	
 		
-func rotateDog():
+func rotateDog(delta):
 	if dog.rotation > .7:
-		dog.rotation_degrees -= .6
+		dog.rotation_degrees -= .6 * delta
 		poorDog()
 	elif dog.rotation < -.7:
-		dog.rotation_degrees += .6
+		dog.rotation_degrees += .6 * delta
 		poorDog()
 	else:
 		dog.rotation_degrees += angleProgress

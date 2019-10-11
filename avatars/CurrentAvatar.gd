@@ -1,14 +1,19 @@
 extends Node2D
 
+export var player = ""
+
 func _ready():
-	if GameVars.playerProps[GameVars.currentPlayer]["head"] != null:
+	if player.length() == 0:
+		player = GameVars.currentPlayer
+		
+	if GameVars.playerProps[player]["head"] != null:
 		buildCurrentAvatar()
 
 func buildCurrentAvatar():
-	var finalhead = GameVars.playerProps[GameVars.currentPlayer]["head"]
-	var finaltorso = GameVars.playerProps[GameVars.currentPlayer]["torso"]
-	var finalfeet = GameVars.playerProps[GameVars.currentPlayer]["feet"]
-	var colorMod =  GameVars.playerProps[GameVars.currentPlayer]["color"]["value"]
+	var finalhead = GameVars.playerProps[player]["head"]
+	var finaltorso = GameVars.playerProps[player]["torso"]
+	var finalfeet = GameVars.playerProps[player]["feet"]
+	var colorMod =  GameVars.playerProps[player]["color"]["value"]
 	
 	var instanceHead =  GameVars.heads[finalhead].instance()
 	var instanceTorso = GameVars.torsos[finaltorso].instance()

@@ -1,0 +1,142 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Apacheta.gd" type="Script" id=1]
+[ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gfx/bgs/hole.png" type="Texture" id=3]
+[ext_resource path="res://sfx/bgm/andino1loop.ogg" type="AudioStream" id=4]
+[ext_resource path="res://PiedrasPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://gfx/bgs/minihole.png" type="Texture" id=6]
+[ext_resource path="res://sfx/desaparece-aparece-1.wav" type="AudioStream" id=7]
+[ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=8]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://sfx/chanchito.wav" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Glow"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("MiniHole:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0.435294, 0.160784, 0.768627, 1 ), Color( 0.72549, 0.235294, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Rotate"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hole:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MiniHole:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+
+[node name="Apacheta" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 1081.71, 138.254, 2009.27 ]
+}
+
+[node name="Playa" parent="." instance=ExtResource( 2 )]
+modulate = Color( 0.529412, 0.529412, 0.529412, 1 )
+
+[node name="Hole" type="Sprite" parent="."]
+position = Vector2( 1081.51, 547.967 )
+texture = ExtResource( 3 )
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="PiedrasPlayer1" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2125.95, 6.23753 )
+scale = Vector2( -1, 1.038 )
+player = "player1"
+
+[node name="PiedrasPlayer2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 25.7019, 21.6131 )
+rotation = 3.14159
+scale = Vector2( -1, -1 )
+player = "player2"
+
+[node name="PiedrasPlayer3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2135.49, 1109.38 )
+scale = Vector2( -1, -1 )
+player = "player3"
+
+[node name="PiedrasPlayer4" parent="." instance=ExtResource( 5 )]
+position = Vector2( 186.255, 1050.06 )
+scale = Vector2( 0.911, -1 )
+player = "player4"
+
+[node name="MiniHole" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 1081.51, 547.967 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 6 )
+
+[node name="InTheHole" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Glow = SubResource( 1 )
+
+[node name="RotateHole" type="AnimationPlayer" parent="."]
+autoplay = "Rotate"
+anims/Rotate = SubResource( 2 )
+
+[node name="TouchArea" parent="." instance=ExtResource( 8 )]
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 2160.0
+margin_bottom = 1080.0
+
+[node name="AvatarPlayer1" parent="." instance=ExtResource( 9 )]
+position = Vector2( 141.337, 241.724 )
+rotation = 3.14159
+scale = Vector2( 0.4, 0.4 )
+player = "player1"
+
+[node name="AvatarPlayer2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2005.15, 234.514 )
+rotation = 3.14159
+scale = Vector2( 0.4, 0.4 )
+player = "player2"
+
+[node name="AvatarPlayer3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 130.522, 843.767 )
+scale = Vector2( 0.4, 0.4 )
+player = "player3"
+
+[node name="AvatarPlayer4" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2012.36, 887.027 )
+scale = Vector2( 0.4, 0.4 )
+player = "player4"
+
+[node name="AvatarNoises" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )

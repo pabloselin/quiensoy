@@ -6,7 +6,7 @@ func _ready():
 	$SceneDuration.start(sceneDuration)
 
 func _input(event):
-	if event is InputEventScreenDrag:
+	if event is InputEventScreenTouch:
 		SceneChanger.change_scene_tiled("res://PlayersStart.tscn")	
 
 func _on_SceneDuration_timeout():

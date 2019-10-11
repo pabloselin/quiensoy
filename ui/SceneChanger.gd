@@ -7,7 +7,7 @@ onready var curtain = $Control/Curtain
 onready var grid = $Control/GridContainer
 var tileTexture = load("res://gfx/tiles/tile_A.png")
 
-func change_scene( path, delay = 0.5):
+func change_scene( path, delay = 0.1):
 	yield(get_tree().create_timer(delay), "timeout")
 	animation_player.play("Fade")
 	yield(animation_player, "animation_finished")
@@ -15,15 +15,15 @@ func change_scene( path, delay = 0.5):
 	animation_player.play_backwards("Fade")
 	emit_signal("scene_changed")
 	
-func change_scene_tiled( path, delay = 0.5):
+func change_scene_tiled( path, delay = 0.1):
 	var tileSize = tileTexture.get_size()
 	var numberTilesX = GameVars.screenSize.x / tileSize.x
 	var numberTilesY = GameVars.screenSize.y / tileSize.y
-	var numberTiles = numberTilesX * numberTilesY + 20
+	var numberTiles = numberTilesX * numberTilesY + 32
 	grid.columns = numberTilesX + 2
 	
-	for i in range(numberTiles / 4):
-		for i in range(4):		
+	for i in range(numberTiles / 8):
+		for i in range(8):		
 			var tile = TextureRect.new()
 			tile.texture = tileTexture
 			grid.add_child(tile)
@@ -41,8 +41,8 @@ func change_scene_tiled( path, delay = 0.5):
 	for i in childTiles.size():
 		childTiles[i].queue_free()
 		yieldDif += 1
-		if yieldDif % 4 == 0:
+		if yieldDif % 8 == 0:
 			yield(get_tree().create_timer(0), "timeout")
-	
+	emit_signal("scene_changed")
 	
 	

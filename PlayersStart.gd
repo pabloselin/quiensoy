@@ -107,7 +107,7 @@ func _on_Seconds_timeout():
 			$Camera2D/AnimationPlayer.play("ZoomStart")
 			yield($Camera2D/AnimationPlayer, "animation_finished")
 			Utils.initialPlayersOrder()
-			SceneChanger.change_scene("res://Main.tscn")
+			SceneChanger.change_scene_tiled("res://Main.tscn")
 	else:
 		$Sounds/CountDown.play()
 		updateLabel(str(timeToStart))

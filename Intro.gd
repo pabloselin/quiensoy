@@ -28,7 +28,5 @@ func _on_StartButton_pressed():
 	yield($RuidoComienzo, "finished")
 	SceneChanger.change_scene_tiled("res://TransitionScene.tscn")
 	
-	
-
 func _on_CreditsButton_pressed():
-	get_tree().change_scenes("res://Creditos.tscn")
+	SceneChanger.change_scene_tiled("res://Creditos.tscn")
