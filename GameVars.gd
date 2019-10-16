@@ -3,7 +3,7 @@ extends Node
 # Comentarios
 # Tortuga añadir mas obstaculos
 # Revisar la boca que habla
-var gameVersion = "0.2.7.3"
+var gameVersion = "0.2.8.2"
 var playerObjects = [
 	"arepa_02.png",
 	"arepa_01.png",
@@ -21,7 +21,6 @@ var playerObjects = [
 	"tambor_01.png",
 	"tortuga.png",
 	"cruzafro.png",
-	"apacheta.png",
 	"canchita.png",
 	"viento.png"
 ]

@@ -98,3 +98,6 @@ func buildName(player):
 	
 	return pickName + " " + pickColor
 	
+func debugPlayers(activePlayers):
+	for i in activePlayers.size():
+		GameVars.playerProps[activePlayers[i]]["active"] = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Intro.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://fonts/Schoolbell-Regular.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://gfx/icons/boton.png" type="Texture" id=6]
 [ext_resource path="res://sfx/tambor2.wav" type="AudioStream" id=7]
+[ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Tilt"
@@ -46,7 +47,6 @@ __meta__ = {
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
 modulate = Color( 1, 0.866667, 0, 0.564706 )
-scale = Vector2( 1.5, 1.5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Tilt"
@@ -109,5 +109,7 @@ text = "¡empiecen!"
 
 [node name="RuidoComienzo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="TouchArea" parent="." instance=ExtResource( 8 )]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

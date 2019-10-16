@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://FinalScene.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=8]
 [ext_resource path="res://gfx/objects/bote_01.png" type="Texture" id=9]
 [ext_resource path="res://sfx/bgm/carnaval_urbano_loop.ogg" type="AudioStream" id=10]
+[ext_resource path="res://guias/Malku.tscn" type="PackedScene" id=11]
+[ext_resource path="res://guias/Skaty.tscn" type="PackedScene" id=12]
+[ext_resource path="res://guias/Surf.tscn" type="PackedScene" id=13]
+[ext_resource path="res://guias/Flecha.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -21,6 +25,7 @@ script = ExtResource( 1 )
 
 [node name="Playa" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
+modulate = Color( 1, 0.792157, 0.164706, 1 )
 position = Vector2( 242.267, 65.2257 )
 scale = Vector2( 0.8, 0.8 )
 
@@ -64,7 +69,7 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Vehiculos/Path2D"]
 position = Vector2( 711.519, 817.892 )
-rotation = -0.705031
+rotation = -0.705067
 
 [node name="bote_01" type="Sprite" parent="Vehiculos/Path2D/PathFollow2D"]
 position = Vector2( 4.8595, -3.45911 )
@@ -75,3 +80,23 @@ texture = ExtResource( 9 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 autoplay = true
+
+[node name="Personajes" type="Node2D" parent="."]
+
+[node name="Guia" parent="Personajes" instance=ExtResource( 11 )]
+position = Vector2( 209.093, 897.656 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Guia2" parent="Personajes" instance=ExtResource( 12 )]
+position = Vector2( 2008.01, 183.857 )
+rotation = 3.14159
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Guia3" parent="Personajes" instance=ExtResource( 13 )]
+position = Vector2( 1982.78, 901.261 )
+scale = Vector2( 0.2, 0.2 )
+
+[node name="Guia4" parent="Personajes" instance=ExtResource( 14 )]
+position = Vector2( 191.067, 129.782 )
+rotation = 3.49066
+scale = Vector2( 0.2, 0.2 )

@@ -2,16 +2,16 @@
 
 [ext_resource path="res://minigames/MiniGameBase.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=3]
-[ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=4]
-[ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=5]
-[ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=6]
-[ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=7]
-[ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=8]
-[ext_resource path="res://gfx/sprites/unfold_06c.png" type="Texture" id=9]
-[ext_resource path="res://gfx/sprites/unfold_06f.png" type="Texture" id=10]
-[ext_resource path="res://gfx/sprites/unfold_06d.png" type="Texture" id=11]
-[ext_resource path="res://gfx/sprites/unfold_06e.png" type="Texture" id=12]
+[ext_resource path="res://gfx/sprites/unfold_06d.png" type="Texture" id=3]
+[ext_resource path="res://gfx/sprites/unfold_06e.png" type="Texture" id=4]
+[ext_resource path="res://gfx/sprites/unfold_01.png" type="Texture" id=5]
+[ext_resource path="res://gfx/sprites/unfold_02.png" type="Texture" id=6]
+[ext_resource path="res://gfx/sprites/unfold_03.png" type="Texture" id=7]
+[ext_resource path="res://gfx/sprites/unfold_04.png" type="Texture" id=8]
+[ext_resource path="res://gfx/sprites/unfold_05.png" type="Texture" id=9]
+[ext_resource path="res://gfx/sprites/unfold_06.png" type="Texture" id=10]
+[ext_resource path="res://gfx/sprites/unfold_06c.png" type="Texture" id=11]
+[ext_resource path="res://gfx/sprites/unfold_06f.png" type="Texture" id=12]
 [ext_resource path="res://fonts/Schoolbell-Regular.ttf" type="DynamicFontData" id=13]
 [ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://gfx/masks/minigamemask_c.png" type="Texture" id=15]
@@ -26,14 +26,14 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": false,
-"name": "unfold",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "jitter",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "unfold",
 "speed": 12.0
 } ]
 

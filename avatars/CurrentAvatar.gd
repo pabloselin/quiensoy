@@ -9,6 +9,9 @@ func _ready():
 	if GameVars.playerProps[player]["head"] != null:
 		buildCurrentAvatar()
 
+func assignPlayer(player):
+	player = player
+
 func buildCurrentAvatar():
 	var finalhead = GameVars.playerProps[player]["head"]
 	var finaltorso = GameVars.playerProps[player]["torso"]

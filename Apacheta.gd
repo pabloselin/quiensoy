@@ -6,44 +6,61 @@ var reachedStones = 0
 var increment = 30
 export var debug = false
 var playerCurves = {}
+var redoblePlaying = false
+var transitionStarted = false
+signal updateScoreStones
 
 func _ready():
 	playerCurves = {
 		"player1": {
+			"name": "player1",
 			"curve": $PiedrasPlayer1,
+			"counter": $Score/ContadorPiedras1,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player1"]["wins"],
 			"built": false
 			},
 		"player2": {
+			"name": "player2",
 			"curve": $PiedrasPlayer2,
+			"counter": $Score/ContadorPiedras2,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player2"]["wins"],
 			"built": false
 			},
 		"player3": {
+			"name": "player3",
 			"curve": $PiedrasPlayer3,
+			"counter": $Score/ContadorPiedras3,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player3"]["wins"],
 			"built": false
 			},
 		"player4": {
+			"name": "player4",
 			"curve": $PiedrasPlayer4,
+			"counter": $Score/ContadorPiedras4,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player4"]["wins"],
 			"built": false
 			}
 		}
-	checkActivePlayers()
-	
 	if debug == true:
+		Utils.debugPlayers(["player1", "player2", "player3", "player4"])
 		for playerCurve in playerCurves.values():
 			playerCurve["points"] = 2
+			GameVars.playerProps[playerCurve["name"]]["wins"] = 5
 
+	checkActivePlayers()
+	
+	for playerCurve in playerCurves.values():
+		self.connect("updateScoreStones", playerCurve["counter"], "updateScoreStone")
+	emit_signal("updateScoreStones")
+	
 	
 func _process(delta):
 	moveStones(delta)
@@ -60,15 +77,17 @@ func _input(event):
 
 func updateScore():
 	for playerCurve in playerCurves.values():
+		var score = playerCurve["points"] - playerCurve["timesHit"]
+		#$ContadorPiedras1.init(score)
 		var label = playerCurve.curve.get_children()
-		label[1].text = str(playerCurve["points"] - playerCurve["timesHit"])
+		label[1].text = str(score)
 
 func moveStones(delta):
 	for playerCurve in playerCurves.values():
 		var pathFollow = playerCurve.curve.get_children()
 		var speed = playerCurve.speed
 		pathFollow[0].offset += delta * speed
-	
+		
 func trackOffset():
 	for playerCurve in playerCurves.values():
 		var pathFollow = playerCurve.curve.get_children()
@@ -83,6 +102,8 @@ func trackOffset():
 				playerCurve["speed"] = 0
 				$AnimationPlayer.play("Glow")
 				pointSound(playerCurve)
+				GameVars.playerProps[playerCurve["name"]]["wins"] -= 1
+				emit_signal("updateScoreStones")
 
 func checkApachetaBuilt():
 	for playerCurve in playerCurves.values():
@@ -95,37 +116,42 @@ func checkBuilt():
 	for playerCurve in playerCurves.values():
 		if playerCurve["built"] == false:
 			isBuilt = false
+		if playerCurve["built"] == true:
+			playerCurve["curve"].visible = false
 	
 	if isBuilt == true:
-		SceneChanger.change_scene("res://FinalScene.tscn", 0.5)
+		if transitionStarted == false:
+			transitionStarted = true
+			$RotateHole.play("Rotate", -1, 4)
+			$ShowApacheta/Redoble.play()
+			yield(get_tree().create_timer(1), "timeout")
+			$RotateHole.play("Rotate", -1, 6)
+			$ShowApacheta/AnimateApacheta.play("FadeIn")
+			yield(get_tree().create_timer(4), "timeout")
+			SceneChanger.change_scene_tiled("res://FinalScene.tscn")
 	
 	
 func checkActivePlayers():
-	for playerkey in playerCurves:
-		if GameVars.playerProps[playerkey]["active"] == false:
-			playerCurves[playerkey]["curve"].queue_free()
-			playerCurves.erase(playerkey)
+	for player in playerCurves.values():
+		if GameVars.playerProps[player["name"]]["active"] == false:
+			player["curve"].queue_free()
+			playerCurves.erase(player["name"])
 
 func pointSound(player):
-	print(str(player))
 	$InTheHole.play()
 
 func detectPlayerPress(position):
 		if position.x > GameVars.screenSize.x / 2:
 			#Puede ser player dos o cuatro
 			if position.y > GameVars.screenSize.y / 2:
-				print(str("player4"))
 				speedUp("player4")
 			else:
-				print(str("player2"))
 				speedUp("player2")
 		elif position.x < GameVars.screenSize.x / 2:
 			#Puedes er player uno o tres
 			if position.y > GameVars.screenSize.y / 2:
-				print(str("player3"))
 				speedUp("player3")
 			else:
-				print(str("player1"))
 				speedUp("player1")
 		
 func speedUp(player):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Apacheta.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -10,6 +10,10 @@
 [ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sfx/chanchito.wav" type="AudioStream" id=10]
+[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=11]
+[ext_resource path="res://gfx/player_objects/apacheta.png" type="Texture" id=12]
+[ext_resource path="res://gfx/texts/letraapacheta.png" type="Texture" id=13]
+[ext_resource path="res://ui/ContadorPiedras.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Glow"
@@ -56,10 +60,26 @@ tracks/1/keys = {
 "values": [ 0.0, -360.0 ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Apacheta" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
-"_edit_vertical_guides_": [ 1081.71, 138.254, 2009.27 ]
+"_edit_horizontal_guides_": [ 84.9756, 946.582 ],
+"_edit_vertical_guides_": [ 1081.71, 296.876, 1883.1 ]
 }
 
 [node name="Playa" parent="." instance=ExtResource( 2 )]
@@ -111,32 +131,88 @@ autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
 
 [node name="TouchArea" parent="." instance=ExtResource( 8 )]
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 2160.0
-margin_bottom = 1080.0
+margin_left = -3.32056
+margin_top = 3.60504
+margin_right = 2156.68
+margin_bottom = 1083.6
 
 [node name="AvatarPlayer1" parent="." instance=ExtResource( 9 )]
 position = Vector2( 141.337, 241.724 )
 rotation = 3.14159
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 player = "player1"
 
 [node name="AvatarPlayer2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2005.15, 234.514 )
 rotation = 3.14159
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 player = "player2"
 
 [node name="AvatarPlayer3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 130.522, 843.767 )
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 player = "player3"
 
 [node name="AvatarPlayer4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2012.36, 887.027 )
-scale = Vector2( 0.4, 0.4 )
+scale = Vector2( 0.3, 0.3 )
 player = "player4"
 
 [node name="AvatarNoises" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+
+[node name="ShowApacheta" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Redoble" type="AudioStreamPlayer" parent="ShowApacheta"]
+stream = ExtResource( 11 )
+
+[node name="Apacheta" type="Sprite" parent="ShowApacheta"]
+position = Vector2( 1052.67, 429 )
+rotation = -1.5708
+texture = ExtResource( 12 )
+
+[node name="LetrasApacheta" type="Sprite" parent="ShowApacheta"]
+position = Vector2( 1067.09, 688.564 )
+rotation = -1.5708
+texture = ExtResource( 13 )
+
+[node name="AnimateApacheta" type="AnimationPlayer" parent="ShowApacheta"]
+anims/FadeIn = SubResource( 3 )
+
+[node name="Score" type="Node" parent="."]
+
+[node name="ContadorPiedras1" parent="Score" instance=ExtResource( 14 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 292.009
+margin_top = 90.1261
+margin_right = 292.009
+margin_bottom = 90.1261
+
+[node name="ContadorPiedras2" parent="Score" instance=ExtResource( 14 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1879.41
+margin_top = 93.731
+margin_right = 1879.41
+margin_bottom = 93.731
+player = "player2"
+
+[node name="ContadorPiedras3" parent="Score" instance=ExtResource( 14 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 292.008
+margin_top = 941.312
+margin_right = 292.008
+margin_bottom = 941.312
+player = "player3"
+
+[node name="ContadorPiedras4" parent="Score" instance=ExtResource( 14 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1882.23
+margin_top = 948.522
+margin_right = 1882.23
+margin_bottom = 948.522
+player = "player4"

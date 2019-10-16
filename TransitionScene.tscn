@@ -251,7 +251,7 @@ tracks/17/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 render_mode blend_mix;
 
@@ -277,16 +277,16 @@ void fragment() {
 	COLOR = mix(shadow, col, col.a);
 }"
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/radius = 5.0
 shader_param/modulate = null
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 300
 font_data = ExtResource( 25 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 230
 use_filter = true
 font_data = ExtResource( 26 )
@@ -525,7 +525,7 @@ position = Vector2( 1077.75, 577.673 )
 scale = Vector2( 0.08, 0.08 )
 
 [node name="FondoCirculo" type="Sprite" parent="Titulo"]
-material = SubResource( 5 )
+material = SubResource( 3 )
 position = Vector2( -97.7969, 447.58 )
 scale = Vector2( 13, 13 )
 texture = ExtResource( 24 )
@@ -541,7 +541,7 @@ margin_right = -28068.2
 margin_bottom = -13227.7
 rect_scale = Vector2( 10, 10 )
 rect_pivot_offset = Vector2( 411.932, 152.479 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.690196, 0, 0, 1 )
 text = "MISION"
 align = 1
@@ -554,7 +554,7 @@ margin_right = -19394.3
 margin_bottom = -10596.6
 rect_scale = Vector2( 10, 10 )
 rect_pivot_offset = Vector2( 1452.6, 185.156 )
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "LIMPIEZA DE PLAYA"
 align = 1

@@ -7,4 +7,4 @@ func _ready():
 		updatePlayerScore(players[i], activePlayers[i])
 		
 func updatePlayerScore(player, activePlayer):
-	player.text = GameVars.playerProps[activePlayer]["wins"]
+	pass

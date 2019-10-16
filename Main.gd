@@ -5,6 +5,7 @@ onready var tween = $CameraTween
 var isPlaying = false
 var playerNames = []
 onready var gameprompt = $Container/GamePrompt
+var transitionTime = .5
 
 var scoreStone = preload("res://ui/MiniGameStone.tscn")
 var scoreStoneWin = preload("res://ui/MiniGameStoneWin.tscn")
@@ -19,7 +20,7 @@ func _ready():
 	if GameVars.transitionType == "avatar":
 		$Sonidos/AvatarPrompt.play()
 		gameprompt.text = "Crea tu avatar"
-		$PlayerNames.visible = false
+		#$PlayerNames.visible = false
 	elif GameVars.transitionType == "minigame":
 		Utils.assignPlayersOrder()
 		$Sonidos/Acelerate.play()
@@ -30,9 +31,9 @@ func _ready():
 			GameVars.playerProps["player3"]["name"],
 			GameVars.playerProps["player4"]["name"]
 			]
-		$PlayerNames.visible = true
-		putPlayerNames()
-		putPlayerScores()
+		#$PlayerNames.visible = true
+		#putPlayerNames()
+		#putPlayerScores()
 
 	playerPrompt.init(player)
 	#playerTurns.init(player)
@@ -41,11 +42,12 @@ func _ready():
 	
 	playerPrompt.position = Vector2(1080, 400)
 	#playerTurns.position = Vector2(1080, 700)
-	$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
-	zoomToMain()
-	yield(get_tree().create_timer(2), "timeout")
-	zoomToPlayer(player)
-	
+	if GameVars.transitionType == "avatar":
+		$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
+	#zoomToMain()
+	#yield(get_tree().create_timer(2), "timeout")
+	#zoomToPlayer(player)
+	$TransitionTimeOut.start(transitionTime)
 	
 # Zooms to selected player position
 func zoomToPlayer(player):
@@ -61,10 +63,10 @@ func zoomToMain():
 
 func _on_CameraTween_tween_all_completed():
 	if GameVars.transitionType == "minigame":
-		yield(get_tree().create_timer(6), "timeout")
-		SceneChanger.change_scene("res://minigames/MiniGameBase.tscn", 0.01)
+		yield(get_tree().create_timer(2), "timeout")
+		SceneChanger.change_scene_tiled("res://minigames/MiniGameBase.tscn", 0.01)
 	elif GameVars.transitionType == "avatar":
-		yield(get_tree().create_timer(4.22), "timeout")
+		yield(get_tree().create_timer(.5), "timeout")
 		SceneChanger.change_scene_tiled("res://AvatarRoulette.tscn")
 
 func putPlayerNames():
@@ -98,5 +100,10 @@ func putPlayerScores():
 		
 		curPlayerKey += 1						
 
-func _on_Timer_timeout():
-	pass
+func _on_TransitionTimeOut_timeout():
+	if GameVars.transitionType == "minigame":
+		#yield(get_tree().create_timer(2), "timeout")
+		SceneChanger.change_scene_tiled("res://minigames/MiniGameBase.tscn", 0.01)
+	elif GameVars.transitionType == "avatar":
+		#yield(get_tree().create_timer(.5), "timeout")
+		SceneChanger.change_scene_tiled("res://AvatarRoulette.tscn")

@@ -27,6 +27,7 @@ var scoreStone = preload("res://ui/MiniGameStone.tscn")
 var scoreStoneWin = preload("res://ui/MiniGameStoneWin.tscn")
 
 func _ready():
+	yield(get_tree().create_timer(.5),"timeout")
 	startMiniGame()
 	
 func _process(delta):
