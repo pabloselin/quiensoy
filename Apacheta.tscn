@@ -1,19 +1,20 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Apacheta.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gfx/bgs/hole.png" type="Texture" id=3]
-[ext_resource path="res://sfx/bgm/andino1loop.ogg" type="AudioStream" id=4]
-[ext_resource path="res://PiedrasPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PiedrasPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sfx/bgm/andino1loop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://gfx/bgs/minihole.png" type="Texture" id=6]
 [ext_resource path="res://sfx/desaparece-aparece-1.wav" type="AudioStream" id=7]
 [ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=8]
-[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sfx/chanchito.wav" type="AudioStream" id=10]
-[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=11]
-[ext_resource path="res://gfx/player_objects/apacheta.png" type="Texture" id=12]
-[ext_resource path="res://gfx/texts/letraapacheta.png" type="Texture" id=13]
-[ext_resource path="res://ui/ContadorPiedras.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sfx/chanchito.wav" type="AudioStream" id=9]
+[ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=10]
+[ext_resource path="res://gfx/player_objects/apacheta.png" type="Texture" id=11]
+[ext_resource path="res://gfx/texts/letraapacheta.png" type="Texture" id=12]
+[ext_resource path="res://ui/ContadorPiedras.tscn" type="PackedScene" id=13]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=14]
+[ext_resource path="res://gfx/masks/player_area.png" type="Texture" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Glow"
@@ -89,30 +90,33 @@ modulate = Color( 0.529412, 0.529412, 0.529412, 1 )
 position = Vector2( 1081.51, 547.967 )
 texture = ExtResource( 3 )
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-autoplay = true
+[node name="Piedras" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="PiedrasPlayer1" parent="." instance=ExtResource( 5 )]
+[node name="PiedrasPlayer1" parent="Piedras" instance=ExtResource( 4 )]
 position = Vector2( 2125.95, 6.23753 )
-scale = Vector2( -1, 1.038 )
+rotation = -3.14159
+scale = Vector2( 1, -1.038 )
 player = "player1"
 
-[node name="PiedrasPlayer2" parent="." instance=ExtResource( 5 )]
+[node name="PiedrasPlayer2" parent="Piedras" instance=ExtResource( 4 )]
 position = Vector2( 25.7019, 21.6131 )
-rotation = 3.14159
-scale = Vector2( -1, -1 )
+rotation = -2.53518e-06
 player = "player2"
 
-[node name="PiedrasPlayer3" parent="." instance=ExtResource( 5 )]
+[node name="PiedrasPlayer3" parent="Piedras" instance=ExtResource( 4 )]
 position = Vector2( 2135.49, 1109.38 )
-scale = Vector2( -1, -1 )
+rotation = 3.14159
 player = "player3"
 
-[node name="PiedrasPlayer4" parent="." instance=ExtResource( 5 )]
+[node name="PiedrasPlayer4" parent="Piedras" instance=ExtResource( 4 )]
 position = Vector2( 186.255, 1050.06 )
 scale = Vector2( 0.911, -1 )
 player = "player4"
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [node name="MiniHole" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -136,53 +140,33 @@ margin_top = 3.60504
 margin_right = 2156.68
 margin_bottom = 1083.6
 
-[node name="AvatarPlayer1" parent="." instance=ExtResource( 9 )]
-position = Vector2( 141.337, 241.724 )
-rotation = 3.14159
-scale = Vector2( 0.3, 0.3 )
-player = "player1"
-
-[node name="AvatarPlayer2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2005.15, 234.514 )
-rotation = 3.14159
-scale = Vector2( 0.3, 0.3 )
-player = "player2"
-
-[node name="AvatarPlayer3" parent="." instance=ExtResource( 9 )]
-position = Vector2( 130.522, 843.767 )
-scale = Vector2( 0.3, 0.3 )
-player = "player3"
-
-[node name="AvatarPlayer4" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2012.36, 887.027 )
-scale = Vector2( 0.3, 0.3 )
-player = "player4"
-
 [node name="AvatarNoises" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 9 )
 
 [node name="ShowApacheta" type="Node2D" parent="."]
+editor/display_folded = true
 modulate = Color( 1, 1, 1, 0 )
 
 [node name="Redoble" type="AudioStreamPlayer" parent="ShowApacheta"]
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 
 [node name="Apacheta" type="Sprite" parent="ShowApacheta"]
 position = Vector2( 1052.67, 429 )
 rotation = -1.5708
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="LetrasApacheta" type="Sprite" parent="ShowApacheta"]
 position = Vector2( 1067.09, 688.564 )
 rotation = -1.5708
-texture = ExtResource( 13 )
+texture = ExtResource( 12 )
 
 [node name="AnimateApacheta" type="AnimationPlayer" parent="ShowApacheta"]
 anims/FadeIn = SubResource( 3 )
 
 [node name="Score" type="Node" parent="."]
+editor/display_folded = true
 
-[node name="ContadorPiedras1" parent="Score" instance=ExtResource( 14 )]
+[node name="ContadorPiedras1" parent="Score" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 292.009
@@ -190,7 +174,7 @@ margin_top = 90.1261
 margin_right = 292.009
 margin_bottom = 90.1261
 
-[node name="ContadorPiedras2" parent="Score" instance=ExtResource( 14 )]
+[node name="ContadorPiedras2" parent="Score" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 1879.41
@@ -199,7 +183,7 @@ margin_right = 1879.41
 margin_bottom = 93.731
 player = "player2"
 
-[node name="ContadorPiedras3" parent="Score" instance=ExtResource( 14 )]
+[node name="ContadorPiedras3" parent="Score" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 292.008
@@ -208,7 +192,7 @@ margin_right = 292.008
 margin_bottom = 941.312
 player = "player3"
 
-[node name="ContadorPiedras4" parent="Score" instance=ExtResource( 14 )]
+[node name="ContadorPiedras4" parent="Score" instance=ExtResource( 13 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 1882.23
@@ -216,3 +200,61 @@ margin_top = 948.522
 margin_right = 1882.23
 margin_bottom = 948.522
 player = "player4"
+
+[node name="Avatars" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="AvatarPlayer1" parent="Avatars" instance=ExtResource( 14 )]
+position = Vector2( 141.337, 241.724 )
+rotation = 3.14159
+scale = Vector2( 0.3, 0.3 )
+player = "player1"
+
+[node name="AvatarPlayer2" parent="Avatars" instance=ExtResource( 14 )]
+position = Vector2( 2005.15, 234.514 )
+rotation = 3.14159
+scale = Vector2( 0.3, 0.3 )
+player = "player2"
+
+[node name="AvatarPlayer3" parent="Avatars" instance=ExtResource( 14 )]
+position = Vector2( 130.522, 843.767 )
+scale = Vector2( 0.3, 0.3 )
+player = "player3"
+
+[node name="AvatarPlayer4" parent="Avatars" instance=ExtResource( 14 )]
+position = Vector2( 2012.36, 887.027 )
+scale = Vector2( 0.3, 0.3 )
+player = "player4"
+
+[node name="Zonas" type="GridContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 2
+
+[node name="PlayerIndicator1" type="TextureRect" parent="Zonas"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1080.0
+margin_bottom = 540.0
+texture = ExtResource( 15 )
+
+[node name="PlayerIndicator2" type="TextureRect" parent="Zonas"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1084.0
+margin_right = 2164.0
+margin_bottom = 540.0
+texture = ExtResource( 15 )
+
+[node name="PlayerIndicator3" type="TextureRect" parent="Zonas"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 544.0
+margin_right = 1080.0
+margin_bottom = 1084.0
+texture = ExtResource( 15 )
+
+[node name="PlayerIndicator4" type="TextureRect" parent="Zonas"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1084.0
+margin_top = 544.0
+margin_right = 2164.0
+margin_bottom = 1084.0
+texture = ExtResource( 15 )

@@ -3,7 +3,7 @@ extends Node2D
 var stoneSpeed = 0
 var availableStones = 20
 var reachedStones = 0
-var increment = 30
+var increment = 600
 export var debug = false
 var playerCurves = {}
 var redoblePlaying = false
@@ -14,8 +14,9 @@ func _ready():
 	playerCurves = {
 		"player1": {
 			"name": "player1",
-			"curve": $PiedrasPlayer1,
+			"curve": $Piedras/PiedrasPlayer1,
 			"counter": $Score/ContadorPiedras1,
+			"zona": $Zonas/PlayerIndicator1,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player1"]["wins"],
@@ -23,8 +24,9 @@ func _ready():
 			},
 		"player2": {
 			"name": "player2",
-			"curve": $PiedrasPlayer2,
+			"curve": $Piedras/PiedrasPlayer2,
 			"counter": $Score/ContadorPiedras2,
+			"zona": $Zonas/PlayerIndicator2,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player2"]["wins"],
@@ -32,8 +34,9 @@ func _ready():
 			},
 		"player3": {
 			"name": "player3",
-			"curve": $PiedrasPlayer3,
+			"curve": $Piedras/PiedrasPlayer3,
 			"counter": $Score/ContadorPiedras3,
+			"zona": $Zonas/PlayerIndicator3,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player3"]["wins"],
@@ -41,8 +44,9 @@ func _ready():
 			},
 		"player4": {
 			"name": "player4",
-			"curve": $PiedrasPlayer4,
+			"curve": $Piedras/PiedrasPlayer4,
 			"counter": $Score/ContadorPiedras4,
+			"zona": $Zonas/PlayerIndicator4,
 			"speed": 0,
 			"timesHit": 0,
 			"points": GameVars.playerProps["player4"]["wins"],
@@ -52,8 +56,8 @@ func _ready():
 	if debug == true:
 		Utils.debugPlayers(["player1", "player2", "player3", "player4"])
 		for playerCurve in playerCurves.values():
-			playerCurve["points"] = 2
-			GameVars.playerProps[playerCurve["name"]]["wins"] = 5
+			playerCurve["points"] = 100
+			GameVars.playerProps[playerCurve["name"]]["wins"] = 100
 
 	checkActivePlayers()
 	
@@ -157,6 +161,9 @@ func detectPlayerPress(position):
 func speedUp(player):
 	if playerCurves.has(player) and playerCurves[player]["built"] == false:
 		playerCurves[player].speed += increment
+		playerCurves[player]["zona"].modulate = Color(1, 1, 1, .3)
+		yield(get_tree().create_timer(0.1), "timeout")
+		playerCurves[player]["zona"].modulate = Color(1, 1, 1, 0)
 				
 func transformStone(player):
 	pass

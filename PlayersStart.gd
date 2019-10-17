@@ -46,10 +46,10 @@ func positionPlayers():
 	
 	$TimerUI/TimerPez/PezGlobo.play("idle")
 	$TimerUI/TimerPez/AnimationPlayer.play("Shake")
-	
+	$Players.visible = false
+	$Ayudas.visible = false
 	connect("player_folded", self, "playerFolded")
 	connect("player_unfolded", self, "playerUnfolded")
-	readyToPlay = true
 	for i in playerButtons.size():
 		playerButtons[i].connect("pressed", self, "playAnimationPlayer", [i])
 		playerAnimations[i].connect("animation_finished", self, "playerAssignTurn", [i])
@@ -118,8 +118,11 @@ func startStart():
 	$Instructivo.visible = false
 	$Skip.visible = false
 	$ColorRect.visible = false
+	if $Ayudas:
+		$Ayudas.visible = true
+	$Players.visible = true
 	$FadeBg.play("Fade")
-	positionPlayers()
+	#positionPlayers()
 
 
 func _on_Instructivo_instructionsFinished():

@@ -101,3 +101,11 @@ func buildName(player):
 func debugPlayers(activePlayers):
 	for i in activePlayers.size():
 		GameVars.playerProps[activePlayers[i]]["active"] = true
+		
+func transitionMessage():
+	var message = ""
+	if GameVars.transitionType == "minigame":
+		message = "A jugar!"
+	elif GameVars.transitionType == "avatar":
+		message = "Crea tu avatar!"
+	return message

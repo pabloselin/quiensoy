@@ -1,16 +1,18 @@
-extends Node
+extends Control
 
 onready var camara = $Camera2D
 onready var tween = $CameraTween
 var isPlaying = false
 var playerNames = []
 onready var gameprompt = $Container/GamePrompt
-var transitionTime = .5
+var transitionTime = 2
 
 var scoreStone = preload("res://ui/MiniGameStone.tscn")
 var scoreStoneWin = preload("res://ui/MiniGameStoneWin.tscn")
 var playerTurns = preload("res://PlayerTurns.tscn").instance()
 var playerPrompt = preload("res://PlayerPrompt.tscn").instance()
+
+# Descripcion de la mision con un texto
 
 func _ready():
 	Utils.allPlayersHaveAvatars()
@@ -19,34 +21,13 @@ func _ready():
 	
 	if GameVars.transitionType == "avatar":
 		$Sonidos/AvatarPrompt.play()
-		gameprompt.text = "Crea tu avatar"
-		#$PlayerNames.visible = false
 	elif GameVars.transitionType == "minigame":
 		Utils.assignPlayersOrder()
 		$Sonidos/Acelerate.play()
-		gameprompt.text = "A jugar!"
-		playerNames = [
-			GameVars.playerProps["player1"]["name"],
-			GameVars.playerProps["player2"]["name"],
-			GameVars.playerProps["player3"]["name"],
-			GameVars.playerProps["player4"]["name"]
-			]
-		#$PlayerNames.visible = true
-		#putPlayerNames()
-		#putPlayerScores()
 
 	playerPrompt.init(player)
-	#playerTurns.init(player)
-	#var turns = add_child(playerTurns)
 	var prompt = add_child(playerPrompt)
-	
-	playerPrompt.position = Vector2(1080, 400)
-	#playerTurns.position = Vector2(1080, 700)
-	if GameVars.transitionType == "avatar":
-		$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
-	#zoomToMain()
-	#yield(get_tree().create_timer(2), "timeout")
-	#zoomToPlayer(player)
+	$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
 	$TransitionTimeOut.start(transitionTime)
 	
 # Zooms to selected player position
