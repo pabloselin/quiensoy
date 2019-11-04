@@ -14,14 +14,19 @@ var overStretch = false
 var readyToFire = false
 var win = false
 var lose = false
+var textAction = "ESPERA"
+var textReady = "DISPARA!"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	arrowPosition = arrow.position
+	$Increment.start()
+	$TextAnimation.play("WaitBounce")
 
 func _process(delta):
 	moveArrow(delta)
 	moveCuerda()
+	setText()
 	if readyToFire == true:
 		$BowAnimation.play("ShakeBow")
 
@@ -70,6 +75,18 @@ func moveCuerda():
 	else:
 		if $Cuerda.points[1].x < 740:
 			$Cuerda.points[1].x += 10
-	
+
+func setText():
+	if readyToFire == true:
+		$ActionPrompt.text = textReady
+		$Increment.stop()
+		$TextAnimation.play("ActionBounce")
+	else:
+		$ActionPrompt.text = textAction
+		
 func _on_Stretch_timeout():
 	overStretch = true
+
+
+func _on_Increment_timeout():
+	textAction += ". "

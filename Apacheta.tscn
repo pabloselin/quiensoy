@@ -86,7 +86,6 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 84.9756, 946.582 ],
 "_edit_vertical_guides_": [ 1081.71, 296.876, 1883.1 ]
 }
-debug = true
 
 [node name="Playa" parent="." instance=ExtResource( 2 )]
 modulate = Color( 0.529412, 0.529412, 0.529412, 1 )

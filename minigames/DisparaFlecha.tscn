@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://minigames/DisparaFlecha.gd" type="Script" id=1]
 [ext_resource path="res://gfx/objects/flecha.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://gfx/objects/arco.png" type="Texture" id=4]
 [ext_resource path="res://sfx/flecha.wav" type="AudioStream" id=5]
 [ext_resource path="res://sfx/resorte1.wav" type="AudioStream" id=6]
+[ext_resource path="res://fonts/Chewy-Regular.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 312.441, 42.7187 )
@@ -85,6 +86,45 @@ tracks/0/keys = {
 "values": [ 0.0, -180.0 ]
 }
 
+[sub_resource type="DynamicFont" id=6]
+size = 120
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "ActionBounce"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ActionPrompt:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 0.9, 0.9 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "WaitBounce"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("ActionPrompt:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.3, 0.7 ) ]
+}
+
 [node name="DisparaFlecha" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -94,7 +134,6 @@ position = Vector2( -234.955, -98.5441 )
 points = PoolVector2Array( 739.193, 148.107, 737, 504.999, 746.225, 890.02 )
 width = 6.0
 default_color = Color( 0.411765, 0, 0.105882, 1 )
-texture_mode = 0
 
 [node name="Flecha" type="KinematicBody2D" parent="."]
 light_mask = 2
@@ -147,4 +186,20 @@ anims/ArrowAnimation = SubResource( 5 )
 
 [node name="Rebote" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="ActionPrompt" type="Label" parent="."]
+margin_left = 768.733
+margin_top = 83.8616
+margin_right = 1551.73
+margin_bottom = 238.862
+rect_pivot_offset = Vector2( 391, 77 )
+custom_fonts/font = SubResource( 6 )
+text = "[ACTIONPROMPT]"
+
+[node name="Increment" type="Timer" parent="."]
+
+[node name="TextAnimation" type="AnimationPlayer" parent="."]
+anims/ActionBounce = SubResource( 7 )
+anims/WaitBounce = SubResource( 8 )
 [connection signal="timeout" from="Stretch" to="." method="_on_Stretch_timeout"]
+[connection signal="timeout" from="Increment" to="." method="_on_Increment_timeout"]
