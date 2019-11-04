@@ -56,11 +56,11 @@ func _ready():
 	if debug == true:
 		Utils.debugPlayers(["player1", "player2", "player3", "player4"])
 		for playerCurve in playerCurves.values():
-			playerCurve["points"] = 100
-			GameVars.playerProps[playerCurve["name"]]["wins"] = 100
+			playerCurve["points"] = 5
+			GameVars.playerProps[playerCurve["name"]]["wins"] = 5
 
 	checkActivePlayers()
-	
+	$Ayudas/MoveHand.play("moveAround")
 	for playerCurve in playerCurves.values():
 		self.connect("updateScoreStones", playerCurve["counter"], "updateScoreStone")
 	emit_signal("updateScoreStones")
@@ -74,6 +74,7 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventScreenTouch:
+		$Ayudas.visible = false
 		detectPlayerPress(event.position)
 		$AvatarNoises.play(0.5)
 		stoneSpeed += 10

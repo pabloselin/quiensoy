@@ -73,6 +73,7 @@ position = Vector2( 245.142, 57.6805 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="paper_lines" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.509804, 0.509804, 0.509804, 1 )
 position = Vector2( 1126.1, 525.543 )
 rotation = -0.223722
@@ -80,6 +81,7 @@ scale = Vector2( 0.395745, 0.68 )
 texture = ExtResource( 3 )
 
 [node name="paper_lines2" type="Sprite" parent="."]
+visible = false
 position = Vector2( 1114.35, 531.416 )
 rotation = -0.017213
 scale = Vector2( 0.395745, 0.68 )
@@ -128,7 +130,6 @@ uppercase = true
 
 [node name="CurrentCamera" parent="." instance=ExtResource( 11 )]
 editor/display_folded = true
-rotation = 0.0
 
 [node name="TouchArea" parent="CurrentCamera" instance=ExtResource( 12 )]
 margin_left = -1077.63

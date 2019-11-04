@@ -27,7 +27,9 @@ func _ready():
 
 	playerPrompt.init(player)
 	var prompt = add_child(playerPrompt)
-	$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
+	yield(get_tree().create_timer(1), "timeout")
+	playerPrompt.rect_rotation = 180
+	#$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
 	$TransitionTimeOut.start(transitionTime)
 	
 # Zooms to selected player position

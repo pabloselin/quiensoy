@@ -94,6 +94,7 @@ position = Vector2( -234.955, -98.5441 )
 points = PoolVector2Array( 739.193, 148.107, 737, 504.999, 746.225, 890.02 )
 width = 6.0
 default_color = Color( 0.411765, 0, 0.105882, 1 )
+texture_mode = 0
 
 [node name="Flecha" type="KinematicBody2D" parent="."]
 light_mask = 2

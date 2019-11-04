@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "moveAround"
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("TouchIt:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 1.5, 2, 2.5, 2.9, 3.5, 4, 4.6, 5, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 540, 845.688 ), Vector2( 1660, 845 ), Vector2( 1660, 845 ), Vector2( 1650, 250 ), Vector2( 1650, 250 ), Vector2( 547, 260 ), Vector2( 547, 260 ), Vector2( 547.886, 260 ), Vector2( 547.886, 845.688 ), Vector2( 547.886, 845.688 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TouchIt:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2, 2.5, 4.6, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -180.0, -180.0, 0.0 ]
+}
+
+[node name="MoveHand" type="AnimationPlayer"]
+anims/moveAround = SubResource( 1 )

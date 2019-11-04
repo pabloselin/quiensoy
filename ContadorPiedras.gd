@@ -11,6 +11,6 @@ func updateScoreStone():
 	var prevStones = self.get_children()
 	for stone in prevStones.size():
 		prevStones[stone].queue_free()
-	for piedra in range(score):
+	for piedra in range(score - 1):
 		var scoreStoneInstance = scoreStoneWin.instance()
 		self.add_child(scoreStoneInstance)

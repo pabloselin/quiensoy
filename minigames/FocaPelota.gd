@@ -5,7 +5,7 @@ var speed = 500
 onready var foca = $Foca
 onready var pelota = $Pelota
 var bounces = 0
-var winbounces= 4
+var winbounces= 3
 signal minigamewin
 signal minigamelose
 

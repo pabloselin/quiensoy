@@ -1,12 +1,12 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://TransitionScene.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
 [ext_resource path="res://sfx/bgm/cumbia_urbana.ogg" type="AudioStream" id=3]
-[ext_resource path="res://gfx/objects/basura.png" type="Texture" id=4]
-[ext_resource path="res://gfx/objects/basura2.png" type="Texture" id=5]
-[ext_resource path="res://gfx/objects/radiacion_01.png" type="Texture" id=6]
-[ext_resource path="res://gfx/objects/tuberia.png" type="Texture" id=7]
+[ext_resource path="res://gfx/objects/tuberia.png" type="Texture" id=4]
+[ext_resource path="res://gfx/objects/basura.png" type="Texture" id=5]
+[ext_resource path="res://gfx/objects/basura2.png" type="Texture" id=6]
+[ext_resource path="res://gfx/objects/radiacion_01.png" type="Texture" id=7]
 [ext_resource path="res://gfx/objects/tuberia_01.png" type="Texture" id=8]
 [ext_resource path="res://gfx/objects/bolsa.png" type="Texture" id=9]
 [ext_resource path="res://gfx/objects/transito.png" type="Texture" id=10]
@@ -23,17 +23,19 @@
 [ext_resource path="res://gfx/objects/quitasol.png" type="Texture" id=21]
 [ext_resource path="res://gfx/objects/triciclo_arriba.png" type="Texture" id=22]
 [ext_resource path="res://gfx/objects/planta.png" type="Texture" id=23]
-[ext_resource path="res://gfx/bgs/paper_01.jpg" type="Texture" id=24]
+[ext_resource path="res://gfx/bgs/paper_01_exp.png" type="Texture" id=24]
 [ext_resource path="res://fonts/SHARKBAIT 2.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://fonts/GooeyDrippySticky.ttf" type="DynamicFontData" id=26]
 [ext_resource path="res://guias/Skaty.tscn" type="PackedScene" id=27]
 [ext_resource path="res://guias/Malku.tscn" type="PackedScene" id=28]
 [ext_resource path="res://guias/Surf.tscn" type="PackedScene" id=29]
 [ext_resource path="res://guias/Flecha.tscn" type="PackedScene" id=30]
+[ext_resource path="res://gfx/objects/nuebe-toxica_negro-blanco.png" type="Texture" id=31]
+[ext_resource path="res://fonts/funnydeath.otf" type="DynamicFontData" id=32]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CameraTravelling"
-length = 18.0
+length = 13.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
@@ -41,7 +43,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.1, 2.1, 4.1, 8.2, 10 ),
+"times": PoolRealArray( 0, 0.6, 1.1, 1.6, 2.2, 2.6 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 806.819, 657.083 ), Vector2( 781.59, 459.461 ), Vector2( 1300, 700 ), Vector2( 806.819, 657.083 ), Vector2( 1075.33, 606.166 ), Vector2( 1046.49, 564.579 ) ]
@@ -53,7 +55,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 6.1, 10 ),
+"times": PoolRealArray( 0, 0.6, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.6, 0.6 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
@@ -65,7 +67,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 6.1, 7.5 ),
+"times": PoolRealArray( 0, 0.4, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 971, 1501 ), Vector2( 743, 1430 ), Vector2( 968, 960 ) ]
@@ -77,7 +79,7 @@ tracks/3/loop_wrap = false
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 6.1, 7.5 ),
+"times": PoolRealArray( 0.8, 1.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 45.0, 0.0 ]
@@ -89,10 +91,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 5.6, 6.7, 6.7 ),
+"times": PoolRealArray( 0, 1.1, 1.7, 2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 2819.33, -208.537 ), Vector2( 2853.58, 281.207 ), Vector2( 1832.99, 199.012 ), Vector2( 1812.45, 192.163 ) ]
+"values": [ Vector2( 2819.33, -208.537 ), Vector2( 2853.58, 281.207 ), Vector2( 1812.45, 192.163 ), Vector2( 1832.99, 199.012 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Basuras/Basura3:modulate")
@@ -101,7 +103,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 6.2, 7.8 ),
+"times": PoolRealArray( 0, 0.5, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -113,7 +115,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 6.6, 8.1 ),
+"times": PoolRealArray( 0.9, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 2599.17, 974.243 ), Vector2( 2245.97, 940.605 ) ]
@@ -125,7 +127,7 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 5.4, 7.3 ),
+"times": PoolRealArray( 0, 0.7, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 897.874, -400 ), Vector2( 849.357, -357.402 ), Vector2( 904.018, 151.37 ) ]
@@ -137,7 +139,7 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 6.2, 7.6 ),
+"times": PoolRealArray( 0, 0.5, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -452.818, 589.168 ), Vector2( -452.818, 589.168 ), Vector2( 112.603, 661.268 ) ]
@@ -149,7 +151,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 5.6, 6.7 ),
+"times": PoolRealArray( 0, 1.3, 1.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 90.0, 0.0 ]
@@ -161,7 +163,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 5.5, 6.9 ),
+"times": PoolRealArray( 0, 0.5, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -173,7 +175,7 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 6.8, 8.1 ),
+"times": PoolRealArray( 0, 0.8, 1.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1389.35, -300 ), Vector2( 1389.35, -300 ), Vector2( 1435.81, 123.309 ) ]
@@ -185,7 +187,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 7.4, 9.2 ),
+"times": PoolRealArray( 0, 0.1, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -197,7 +199,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 12.1, 12.8, 16.3 ),
+"times": PoolRealArray( 0, 4.7, 5.4, 6.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1.48 ), Vector2( 1, 1 ), Vector2( 13, 13 ), Vector2( 13, 13 ) ]
@@ -209,7 +211,7 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 11.4, 12.4 ),
+"times": PoolRealArray( 0, 4.5, 5.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -221,7 +223,7 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 13.2, 13.9 ),
+"times": PoolRealArray( 0, 5.6, 6.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -233,10 +235,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 11.1, 12.2, 13.1, 14, 14.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 5.7, 6.6, 9.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.0, 0.0, 180.0, 180.0, 0.0 ]
+"values": [ 0.0, 0.0, 0.0 ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("Titulo/Texto:modulate")
@@ -245,10 +247,22 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 13, 14.5 ),
+"times": PoolRealArray( 0, 6.5, 7.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("Mensaje1:rect_position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 1.3, 2.8, 3.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2507.02, 50 ), Vector2( -84.943, 50 ), Vector2( -84.943, 50 ), Vector2( 2403.88, 50 ) ]
 }
 
 [sub_resource type="Shader" id=2]
@@ -291,6 +305,15 @@ size = 230
 use_filter = true
 font_data = ExtResource( 26 )
 
+[sub_resource type="DynamicFont" id=6]
+size = 92
+outline_size = 21
+outline_color = Color( 0.054902, 0.164706, 0.0352941, 1 )
+use_filter = true
+extra_spacing_top = 29
+extra_spacing_char = 1
+font_data = ExtResource( 32 )
+
 [node name="TransitionScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -307,49 +330,98 @@ stream = ExtResource( 3 )
 autoplay = true
 
 [node name="Basuras" type="Node2D" parent="."]
+editor/display_folded = true
 
-[node name="Basura1" type="Sprite" parent="Basuras"]
-position = Vector2( 968, 960 )
-scale = Vector2( 0.3, 0.3 )
+[node name="tuberia" type="Sprite" parent="Basuras"]
+position = Vector2( 1257.16, 1088.67 )
+rotation = -3.14159
+scale = Vector2( 0.446453, 0.446453 )
 texture = ExtResource( 4 )
 
-[node name="Basura2" type="Sprite" parent="Basuras"]
-position = Vector2( 1812.45, 192.163 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Basura1" type="Sprite" parent="Basuras"]
+position = Vector2( 971, 1501 )
+rotation = 0.690859
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 5 )
 
-[node name="Basura3" type="Sprite" parent="Basuras"]
-position = Vector2( 1951, 508.773 )
+[node name="Basura2" type="Sprite" parent="Basuras"]
+position = Vector2( 2819.33, -208.537 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
-[node name="Basura4" type="Sprite" parent="Basuras"]
-position = Vector2( 2245.97, 940.605 )
-rotation = 1.5708
-scale = Vector2( 0.4, 0.4 )
+[node name="Basura3" type="Sprite" parent="Basuras"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 1951, 508.773 )
 texture = ExtResource( 7 )
 
+[node name="Basura4" type="Sprite" parent="Basuras"]
+position = Vector2( 2599.17, 974.243 )
+rotation = 1.5708
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
 [node name="Basura5" type="Sprite" parent="Basuras"]
-position = Vector2( 904.018, 151.37 )
+position = Vector2( 897.874, -400 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 8 )
 
 [node name="Basura6" type="Sprite" parent="Basuras"]
-position = Vector2( 112.603, 661.268 )
+position = Vector2( -452.818, 589.168 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
+[node name="basura2" type="Sprite" parent="Basuras"]
+position = Vector2( 193.391, 1004.17 )
+rotation = 0.401426
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="basura3" type="Sprite" parent="Basuras"]
+position = Vector2( 880.213, 630.426 )
+rotation = 3.06654
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="basura4" type="Sprite" parent="Basuras"]
+position = Vector2( 2236.87, 33.3997 )
+rotation = 3.06654
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="basura5" type="Sprite" parent="Basuras"]
+position = Vector2( -270.154, 108.635 )
+rotation = 4.59022
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
 [node name="Basura7" type="Sprite" parent="Basuras"]
-position = Vector2( 1435.81, 123.309 )
+position = Vector2( 1389.35, -300 )
 rotation = 0.401426
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
+[node name="bolsa" type="Sprite" parent="Basuras"]
+position = Vector2( 1967.48, 924.085 )
+rotation = 0.401426
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 9 )
+
 [node name="MiniBasuras" type="Node2D" parent="Basuras"]
-editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="MiniBasura" type="Sprite" parent="Basuras/MiniBasuras"]
 position = Vector2( 459.167, 808.286 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="MiniBasura7" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 961.542, 138.452 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="MiniBasura8" type="Sprite" parent="Basuras/MiniBasuras"]
+position = Vector2( 1449.36, 208.833 )
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 11 )
 
@@ -382,9 +454,9 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1046.49, 564.579 )
+position = Vector2( 806.819, 657.083 )
 current = true
-zoom = Vector2( 1.2, 1.2 )
+zoom = Vector2( 0.6, 0.6 )
 
 [node name="CamaraPlaya" type="AnimationPlayer" parent="."]
 autoplay = "CameraTravelling"
@@ -392,6 +464,7 @@ anims/CameraTravelling = SubResource( 1 )
 
 [node name="Moscas" type="Node2D" parent="."]
 editor/display_folded = true
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="Mosquita" parent="Moscas" instance=ExtResource( 15 )]
 position = Vector2( 738.209, 252.953 )
@@ -525,13 +598,15 @@ position = Vector2( 1077.75, 577.673 )
 scale = Vector2( 0.08, 0.08 )
 
 [node name="FondoCirculo" type="Sprite" parent="Titulo"]
+modulate = Color( 0, 0, 0, 0 )
 material = SubResource( 3 )
 position = Vector2( -97.7969, 447.58 )
-scale = Vector2( 13, 13 )
+scale = Vector2( 1, 1.48 )
 texture = ExtResource( 24 )
 
 [node name="Texto" type="Node2D" parent="Titulo"]
-position = Vector2( 20483.4, 8465.58 )
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 20824.7, 9898.98 )
 
 [node name="Mision" type="Label" parent="Titulo/Texto"]
 light_mask = 2
@@ -560,6 +635,7 @@ text = "LIMPIEZA DE PLAYA"
 align = 1
 
 [node name="Personajes" type="Node2D" parent="Titulo"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( -10746.9, -6906.19 )
 
 [node name="Skaty" parent="Titulo/Personajes" instance=ExtResource( 27 )]
@@ -577,4 +653,49 @@ scale = Vector2( 4, 4 )
 [node name="Flecha" parent="Titulo/Personajes" instance=ExtResource( 30 )]
 position = Vector2( 16666.5, 10641.2 )
 scale = Vector2( 5, 5 )
+
+[node name="Mensaje1" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -2517.84
+margin_top = 50.0
+margin_right = -2517.84
+margin_bottom = -21.5947
+
+[node name="Panel" type="Panel" parent="Mensaje1"]
+margin_left = 1080.0
+margin_top = 504.0
+margin_right = 1080.0
+margin_bottom = 504.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Mensaje1/Panel"]
+margin_left = -1027.0
+margin_top = -187.0
+margin_right = 1028.0
+margin_bottom = 186.0
+custom_constants/separation = 10
+
+[node name="Nube2" type="TextureRect" parent="Mensaje1/Panel/HBoxContainer"]
+modulate = Color( 0.313726, 1, 0, 1 )
+margin_right = 200.0
+margin_bottom = 373.0
+texture = ExtResource( 31 )
+
+[node name="Limpia" type="Label" parent="Mensaje1/Panel/HBoxContainer"]
+margin_left = 210.0
+margin_top = 59.0
+margin_right = 1845.0
+margin_bottom = 314.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.380392, 0.72549, 0.203922, 1 )
+text = "LIMPIA LA PLAYA
+y sálvala de la contaminación"
+align = 1
+
+[node name="Nube3" type="TextureRect" parent="Mensaje1/Panel/HBoxContainer"]
+modulate = Color( 0.313726, 1, 0, 1 )
+margin_left = 1855.0
+margin_right = 2055.0
+margin_bottom = 373.0
+texture = ExtResource( 31 )
 [connection signal="timeout" from="SceneDuration" to="." method="_on_SceneDuration_timeout"]

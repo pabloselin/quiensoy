@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://PlayersStart.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/AnimatedTileBackground.tscn" type="PackedScene" id=2]
@@ -10,39 +10,10 @@
 [ext_resource path="res://sfx/globoapretando02.wav" type="AudioStream" id=8]
 [ext_resource path="res://sfx/bgm/tumbe.ogg" type="AudioStream" id=9]
 [ext_resource path="res://sfx/globoexplotando02.wav" type="AudioStream" id=10]
-[ext_resource path="res://ui/TouchIt.tscn" type="PackedScene" id=11]
+[ext_resource path="res://ui/AyudasTouch.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Instructivo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://gfx/icons/next.png" type="Texture" id=13]
 [ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=14]
-
-[sub_resource type="Animation" id=1]
-resource_name = "moveAround"
-length = 6.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("TouchIt:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 1, 1.5, 2, 2.5, 2.9, 3.5, 4, 4.6, 5, 6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 540, 845.688 ), Vector2( 1660, 845 ), Vector2( 1660, 845 ), Vector2( 1650, 250 ), Vector2( 1650, 250 ), Vector2( 547, 260 ), Vector2( 547, 260 ), Vector2( 547.886, 260 ), Vector2( 547.886, 845.688 ), Vector2( 547.886, 845.688 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("TouchIt:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 2, 2.5, 4.6, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -180.0, -180.0, 0.0 ]
-}
 
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
@@ -178,16 +149,7 @@ autoplay = true
 [node name="Explode" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 10 )
 
-[node name="Ayudas" type="Node2D" parent="."]
-
-[node name="TouchIt" parent="Ayudas" instance=ExtResource( 11 )]
-modulate = Color( 0, 1, 0.156863, 1 )
-position = Vector2( 473.943, 845.731 )
-rotation = 0.392699
-scale = Vector2( 0.4, 0.4 )
-
-[node name="MoveHand" type="AnimationPlayer" parent="Ayudas"]
-anims/moveAround = SubResource( 1 )
+[node name="Ayudas" parent="." instance=ExtResource( 11 )]
 
 [node name="HelpTimer" type="Timer" parent="."]
 

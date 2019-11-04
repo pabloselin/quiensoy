@@ -6,7 +6,6 @@
 [node name="CurrentCamera" type="Camera2D"]
 light_mask = 3
 position = Vector2( 1077.63, 543.22 )
-rotation = 3.14159
 rotating = true
 current = true
 script = ExtResource( 1 )

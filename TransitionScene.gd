@@ -1,6 +1,6 @@
 extends Control
 
-export var sceneDuration = 20
+export var sceneDuration = 14
 
 func _ready():
 	$SceneDuration.start(sceneDuration)
