@@ -188,10 +188,10 @@ anims/ArrowAnimation = SubResource( 5 )
 stream = ExtResource( 6 )
 
 [node name="ActionPrompt" type="Label" parent="."]
-margin_left = 768.733
-margin_top = 83.8616
-margin_right = 1551.73
-margin_bottom = 238.862
+margin_left = 694.189
+margin_top = 172.382
+margin_right = 1477.19
+margin_bottom = 327.382
 rect_pivot_offset = Vector2( 391, 77 )
 custom_fonts/font = SubResource( 6 )
 text = "[ACTIONPROMPT]"

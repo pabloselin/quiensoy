@@ -14,8 +14,10 @@ func init(thisplayer):
 	var gameMode = $MarginContainer/HBoxContainer/VBoxContainer/GameMode
 	var playerNameLabel = $MarginContainer/HBoxContainer/VBoxContainer/PlayerName
 	var playerScoreLabel = $MarginContainer/HBoxContainer/VBoxContainer/Score/Wins
+	var miniGameIcon = $MarginContainer/HBoxContainer/MiniGameIcon
 	playerNameLabel.visible = false
 	scoreZone.visible = false
+	miniGameIcon.visible = false
 	
 	gameMode.text = Utils.transitionMessage()
 	$PlayerBG.color = GameVars.playerProps[thisplayer]["color"]["value"]
@@ -23,6 +25,7 @@ func init(thisplayer):
 		scoreZone.visible = true
 		playerNameLabel.visible = true
 		playerScoreLabel.visible = true
+		miniGameIcon.visible = true
 		playerNameLabel.text = playerName
 		playerScoreLabel.text = str(score)
 	else:

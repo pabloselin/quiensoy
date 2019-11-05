@@ -130,7 +130,7 @@ func checkBuilt():
 			$RotateHole.play("Rotate", -1, 4)
 			$ShowApacheta/Redoble.play()
 			yield(get_tree().create_timer(1), "timeout")
-			$RotateHole.play("Rotate", -1, 6)
+			$RotateHole.play("RotateandResize", -1, 6)
 			$ShowApacheta/AnimateApacheta.play("FadeIn")
 			yield(get_tree().create_timer(4), "timeout")
 			SceneChanger.change_scene_tiled("res://FinalScene.tscn")

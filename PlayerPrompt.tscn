@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://PlayerPrompt.gd" type="Script" id=1]
 [ext_resource path="res://fonts/JFWilwod.ttf" type="DynamicFontData" id=2]
@@ -6,7 +6,8 @@
 [ext_resource path="res://gfx/icons/happyscorestone_01.png" type="Texture" id=4]
 [ext_resource path="res://gfx/player_objects/arepa_01.png" type="Texture" id=5]
 [ext_resource path="res://gfx/icons/manosola.png" type="Texture" id=6]
-[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/MiniGameIcon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -65,15 +66,15 @@ anchor_bottom = 1.0
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/margin_right = 100
+custom_constants/margin_right = 0
 custom_constants/margin_top = 100
 custom_constants/margin_left = 100
 custom_constants/margin_bottom = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 713.0
+margin_left = 761.0
 margin_top = 347.0
-margin_right = 1447.0
+margin_right = 1499.0
 margin_bottom = 733.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -138,8 +139,15 @@ margin_right = 710.0
 margin_bottom = 500.0
 texture = ExtResource( 6 )
 
-[node name="CurrentAvatar" parent="." instance=ExtResource( 7 )]
-position = Vector2( 484.872, 552.778 )
+[node name="MiniGameIcon" parent="MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 738.0
+margin_right = 738.0
+margin_bottom = 386.0
+
+[node name="CurrentAvatar" parent="." instance=ExtResource( 8 )]
+position = Vector2( 360.943, 512.944 )
 scale = Vector2( 0.4, 0.4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

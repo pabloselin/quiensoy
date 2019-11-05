@@ -32,7 +32,10 @@ var initialZoom = Vector2(0.5, 0.5)
 var initialCameraPosition = Vector2(gameSize.x / 2, gameSize.y / 2)
 var gamesPerPlayer = 5
 var currentPlayer = "player3"
-
+var currentMiniGame
+var currentMiniGameName
+var currentMiniGameTimeout
+var currentMiniGameTexture = ""
 
 var nameList = ["suri", "kusi", "panqarita", "kurmi", "qhantati", "nayra", "allin", "pawkar", "amaru", "suni", "wara wara", "amaya", "antawara", "katari", "qhantuta", "quri", "inkillay", "urma", "kukuli", "warakusi", "wiñay wara", "qurissia", "kusirimay", "ninasisa", "achanqara", "lliwkilla", "amank'ay", "urpikusi", "shulla", "qhispisisa", "tamya", "mamadi", "bangaly", "seydou", "diarru", "fatounata", "ounar", "moussa", "djanko", "yousuf", "sekou", "fadina", "aminata"]
 
@@ -146,61 +149,61 @@ var miniGames = {
 	"turtle": {
 		"time": 10,
 		"scene": "res://minigames/TurtleCrossing.tscn",
-		"tile": null,
+		"tile": "tortuga.png",
 		"name": "Cruza la tortuga"
 	},
 	"dog": {
 		"time": 5,
 		"scene": "res://minigames/TableDog.tscn",
-		"tile": null,
+		"tile": "tablasurf.png",
 		"name": "Surfea el perro"		
 	},
 	"sing": {
 		"time": 5,
 		"scene": "res://minigames/SingingTile.tscn",
-		"tile": null,
+		"tile": "baldosa.png",
 		"name": "Canta la baldosa"
 	},
 	"crab": {
 		"time": 8,
 		"scene": "res://minigames/CrabWalk.tscn",
-		"tile": null,
+		"tile": "cangrejo.png",
 		"name": "Camina el cangrejo"
 	},
 	"flies": {
 		"time": 5,
 		"scene": "res://minigames/EspantaMoscas.tscn",
-		"tile": null,
+		"tile": "matraca.png",
 		"name": "Espanta las moscas"
 	},
 	"silbon": {
 		"time": 6,
 		"scene": "res://minigames/EspantaSilbon.tscn",
-		"tile": null,
+		"tile": "perro.png",
 		"name": "Ahuyenta al silbon"
 	},
 	"foca": {
 		"time": 5,
 		"scene": "res://minigames/FocaPelota.tscn",
-		"tile": null,
+		"tile": "pelota.png",
 		"name": "Rebota la pelota"
 	},
 	"pinchapeces": {
 		"time": 8,
 		"scene": "res://minigames/PinchaPeces.tscn",
-		"tile": null,
+		"tile": "pezglobo.png",
 		"name": "Pincha los peces"
 	},
 	"disparaflecha": {
 		"time": 6,
 		"scene": "res://minigames/DisparaFlecha.tscn",
-		"tile": null,
+		"tile": "arco.png",
 		"name": "Dispara la flecha"
 	},
 	"cosascayendo": {
 		"time": 5,
 		"scene": "res://minigames/CosasCayendo.tscn",
-		"tile": null,
+		"tile": "triciclo.png",
 		"name": "Recoge el reciclaje"
 	}
 }

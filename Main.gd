@@ -23,6 +23,7 @@ func _ready():
 		$Sonidos/AvatarPrompt.play()
 	elif GameVars.transitionType == "minigame":
 		Utils.assignPlayersOrder()
+		chooseMiniGame()
 		$Sonidos/Acelerate.play()
 
 	playerPrompt.init(player)
@@ -31,7 +32,21 @@ func _ready():
 	playerPrompt.rect_rotation = 180
 	#$Fondo.modulate = GameVars.playerProps[player]["color"]["value"]
 	$TransitionTimeOut.start(transitionTime)
-	
+
+func chooseMiniGame():
+	var miniGames = GameVars.currentMiniGames.values()
+	# var miniGames = [tableDog]
+	if miniGames.size() > 0:
+		randomize()
+		var randGameSize = randi() % miniGames.size()
+		var miniGame = miniGames[randGameSize]
+		GameVars.currentMiniGames.erase(miniGame)
+		GameVars.currentMiniGameName = miniGame["name"]
+		GameVars.currentMiniGameTimeout = miniGame.time
+		GameVars.currentMiniGameTexture = miniGame.tile
+		var randGame = load(miniGame.scene)
+		GameVars.currentMiniGame = randGame
+
 # Zooms to selected player position
 func zoomToPlayer(player):
 	tween.interpolate_property(camara, "zoom", GameVars.initialZoom, GameVars.activePlayerZoom, 0.7, Tween.TRANS_LINEAR, Tween.EASE_IN)

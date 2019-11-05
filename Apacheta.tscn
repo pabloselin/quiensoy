@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Apacheta.gd" type="Script" id=1]
 [ext_resource path="res://sceneBackgrounds/Playa.tscn" type="PackedScene" id=2]
@@ -10,11 +10,11 @@
 [ext_resource path="res://ui/TouchArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sfx/chanchito.wav" type="AudioStream" id=9]
 [ext_resource path="res://sfx/redoble.wav" type="AudioStream" id=10]
-[ext_resource path="res://gfx/player_objects/apacheta.png" type="Texture" id=11]
-[ext_resource path="res://gfx/texts/apacheta_a.png" type="Texture" id=12]
-[ext_resource path="res://gfx/texts/apacheta_p.png" type="Texture" id=13]
-[ext_resource path="res://gfx/texts/apacheta_che.png" type="Texture" id=14]
-[ext_resource path="res://gfx/texts/apacheta_ta.png" type="Texture" id=15]
+[ext_resource path="res://gfx/texts/apacheta_a.png" type="Texture" id=11]
+[ext_resource path="res://gfx/texts/apacheta_p.png" type="Texture" id=12]
+[ext_resource path="res://gfx/texts/apacheta_che.png" type="Texture" id=13]
+[ext_resource path="res://gfx/texts/apacheta_ta.png" type="Texture" id=14]
+[ext_resource path="res://items/Apacheta.tscn" type="PackedScene" id=15]
 [ext_resource path="res://ui/ContadorPiedras.tscn" type="PackedScene" id=16]
 [ext_resource path="res://avatars/CurrentAvatar.tscn" type="PackedScene" id=17]
 [ext_resource path="res://gfx/masks/player_area.png" type="Texture" id=18]
@@ -63,6 +63,46 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, -360.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "RotateandResize"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Hole:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 9.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MiniHole:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Hole:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 9.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -137,6 +177,7 @@ anims/Glow = SubResource( 1 )
 [node name="RotateHole" type="AnimationPlayer" parent="."]
 autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
+anims/RotateandResize = SubResource( 4 )
 
 [node name="TouchArea" parent="." instance=ExtResource( 8 )]
 margin_left = -3.32056
@@ -153,46 +194,44 @@ modulate = Color( 1, 1, 1, 0 )
 [node name="Redoble" type="AudioStreamPlayer" parent="ShowApacheta"]
 stream = ExtResource( 10 )
 
-[node name="Apacheta" type="Sprite" parent="ShowApacheta"]
-position = Vector2( 1085.4, 544.806 )
-rotation = -1.5708
-texture = ExtResource( 11 )
-
 [node name="AnimateApacheta" type="AnimationPlayer" parent="ShowApacheta"]
 anims/FadeIn = SubResource( 3 )
 
 [node name="ApachetaText" type="Node2D" parent="ShowApacheta"]
-editor/display_folded = true
 
 [node name="A" type="Sprite" parent="ShowApacheta/ApachetaText"]
-position = Vector2( 845.922, 883.595 )
+position = Vector2( 244.913, 739.167 )
 rotation = -1.5708
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="A2" type="Sprite" parent="ShowApacheta/ApachetaText"]
-position = Vector2( 845.923, 311.656 )
+position = Vector2( 272.868, 302.338 )
+rotation = -1.5708
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 11 )
+
+[node name="PA" type="Sprite" parent="ShowApacheta/ApachetaText"]
+position = Vector2( 219.983, 457.254 )
 rotation = -1.5708
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 12 )
 
-[node name="PA" type="Sprite" parent="ShowApacheta/ApachetaText"]
-position = Vector2( 811.674, 541.116 )
-rotation = -1.5708
+[node name="CHE" type="Sprite" parent="ShowApacheta/ApachetaText"]
+position = Vector2( 498.714, 757.834 )
+rotation = -1.39626
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 13 )
 
-[node name="CHE" type="Sprite" parent="ShowApacheta/ApachetaText"]
-position = Vector2( 1253.47, 767.152 )
-rotation = -1.39626
+[node name="TA" type="Sprite" parent="ShowApacheta/ApachetaText"]
+position = Vector2( 497.077, 237.667 )
+rotation = -1.5708
 scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 14 )
 
-[node name="TA" type="Sprite" parent="ShowApacheta/ApachetaText"]
-position = Vector2( 1219.22, 284.257 )
+[node name="Apacheta2" parent="ShowApacheta" instance=ExtResource( 15 )]
+position = Vector2( 647.599, 1807.69 )
 rotation = -1.5708
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 15 )
 
 [node name="Score" type="Node" parent="."]
 editor/display_folded = true
@@ -258,7 +297,6 @@ scale = Vector2( 0.3, 0.3 )
 player = "player4"
 
 [node name="Zonas" type="GridContainer" parent="."]
-editor/display_folded = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 columns = 2

@@ -35,33 +35,21 @@ func _process(delta):
 	if success == true:
 		$RebootTimer.start(rebootTime)
 	
-func chooseMiniGame():
-	var miniGames = GameVars.currentMiniGames.values()
-	# var miniGames = [tableDog]
-	if miniGames.size() > 0:
-		randomize()
-		var randGameSize = randi() % miniGames.size()
-		var miniGame = miniGames[randGameSize]
-		GameVars.currentMiniGames.erase(miniGame)
-		minigameName = miniGame["name"]
-		timeout = miniGame.time
-		var randGame = load(miniGame.scene)
-		return randGame
-		
+
 func startMiniGame():
 	$UnfoldBG.play("unfold")
-	var curMiniGame = chooseMiniGame().instance()
+	var curMiniGame = GameVars.currentMiniGame.instance()
 	$MiniGameZone.add_child(curMiniGame)
 	#print(str(gameInstance))
 	curMiniGame.connect("minigamewin", self, "_on_minigamewin")
 	curMiniGame.connect("minigamelose", self, "_on_minigamelose")
-	$Timer.start(timeout)
+	$Timer.start(GameVars.currentMiniGameTimeout)
 	putLabels()
 	$GameTimeOut/Inflate.play()
 	$GameTimeOut/FishCountDown.play("idle")
 
 func putLabels():
-	$GameName.text = minigameName
+	$GameName.text = GameVars.currentMiniGameName
 	var wins = GameVars.playerProps[GameVars.currentPlayer]["wins"]
 	var loses = GameVars.playerProps[GameVars.currentPlayer]["loses"]
 	

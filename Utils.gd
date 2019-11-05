@@ -105,7 +105,7 @@ func debugPlayers(activePlayers):
 func transitionMessage():
 	var message = ""
 	if GameVars.transitionType == "minigame":
-		message = "A jugar!"
+		message = GameVars.currentMiniGameName
 	elif GameVars.transitionType == "avatar":
 		message = "Crea tu avatar!"
 	return message
