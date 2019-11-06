@@ -65,7 +65,7 @@ tracks/1/keys = {
 "values": [ 0.0, -360.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "RotateandResize"
 length = 10.0
 tracks/0/type = "value"
@@ -105,8 +105,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 3, 3 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "FadeIn"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -177,7 +176,7 @@ anims/Glow = SubResource( 1 )
 [node name="RotateHole" type="AnimationPlayer" parent="."]
 autoplay = "Rotate"
 anims/Rotate = SubResource( 2 )
-anims/RotateandResize = SubResource( 4 )
+anims/RotateandResize = SubResource( 3 )
 
 [node name="TouchArea" parent="." instance=ExtResource( 8 )]
 margin_left = -3.32056
@@ -195,7 +194,7 @@ modulate = Color( 1, 1, 1, 0 )
 stream = ExtResource( 10 )
 
 [node name="AnimateApacheta" type="AnimationPlayer" parent="ShowApacheta"]
-anims/FadeIn = SubResource( 3 )
+anims/FadeIn = SubResource( 4 )
 
 [node name="ApachetaText" type="Node2D" parent="ShowApacheta"]
 
